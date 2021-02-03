@@ -1,0 +1,37 @@
+{
+  "dockerImageBuilder": "cimg/python:3.8",
+  "inputs": [
+    {
+      "name": "linkedin_email",
+      "type": "CREDENTIAL_LINKEDIN_EMAIL"
+    },
+    {
+      "name": "linkedin_password",
+      "type": "CREDENTIAL_LINKEDIN_PASSWORD"
+    },
+    {
+      "label": "Profiles to analize (one or more, separated by | without space) ",
+      "name": "rit_profiles",
+      "tutorial": "Example: Dennis Ritchie|Lynn Ritchie|Bill Ritchie|John Ritchie",
+      "required": true,
+      "type": "text",
+      "cache": {
+        "active": true,
+        "qty": 5,
+        "newLabel": "Other profile:"
+      }
+    },
+    {
+      "label": "Path to chrome Driver ",
+      "name": "rit_path",
+      "tutorial": "Example: /Users/dennisritchie/Desktop",
+      "required": true,
+      "type": "text",
+      "cache": {
+        "active": true,
+        "qty": 5,
+        "newLabel": "Other path:"
+      }
+    }
+  ]
+}

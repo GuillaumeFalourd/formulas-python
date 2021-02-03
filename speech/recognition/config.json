@@ -1,0 +1,28 @@
+{
+  "dockerImageBuilder": "ritclizup/rit-python3-builder",
+  "inputs": [
+    {
+      "label": "Do you want to create a TXT file based on your speech? ",
+      "name": "txt_file",
+      "type": "text",
+      "items": [
+        "yes",
+        "no"
+      ],
+      "tutorial": "If yes, the command will create a TXT file on the folder when this formula is executed.",
+      "required": true
+    },
+    {
+      "condition": {
+        "variable":"txt_file",
+        "operator":"==",
+        "value":"yes"
+      },
+      "label": "What will be the filename to create ?",
+      "name": "file_name",
+      "type": "text",
+      "default": "text.txt",
+      "tutorial": "Example: my-speech.txt"
+    }
+  ]
+}

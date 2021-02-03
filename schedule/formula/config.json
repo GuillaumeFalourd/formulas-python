@@ -1,0 +1,22 @@
+{
+  "dockerImageBuilder": "ritclizup/rit-python3-builder",
+  "inputs": [
+    {
+      "label": "Frequency: ",
+      "name": "rit_frame_frequency",
+      "required": true,
+      "type": "text",
+      "items": [
+        "seconds",
+        "minutes",
+        "hours"
+      ]
+    },
+    {
+      "label": "Amount frequency: ",
+      "name": "rit_amount_frequency",
+      "required": true,
+      "type": "text"
+    }
+  ]
+}

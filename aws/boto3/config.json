@@ -1,0 +1,46 @@
+{
+  "dockerImageBuilder": "ritclizup/rit-python3-builder",
+  "inputs": [
+    {
+      "name": "rit_access_key",
+      "type": "CREDENTIAL_AWS_ACCESSKEYID"
+    },
+    {
+      "name": "rit_secret_access_key",
+      "type": "CREDENTIAL_AWS_SECRETACCESSKEY"
+    },
+    {
+      "label": "Type your region: ",
+      "name": "rit_region",
+      "tutorial": "AWS region i.e., us-east-1, us-west-1, sa-east-1",
+      "type": "text",
+      "cache": {
+        "active": true,
+        "newLabel": "Type new value. ",
+        "qty": 3
+      }
+    },
+    {
+      "label": "Type the VPC name:",
+      "name": "rit_vpc_name",
+      "type": "text",
+      "tutorial": "The vpc name | e.g.: some-vpc",
+      "cache": {
+        "active": true,
+        "newLabel": "Type new value. ",
+        "qty": 3
+      }
+    },
+    {
+      "label": "Type the rit_vpc_cidr:",
+      "name": "rit_vpc_cidr",
+      "type": "text",
+      "tutorial": "The vpc cidr (Classless Inter-Domain Routing) | e.g.: 10.0.0.0/16",
+      "cache": {
+        "active": true,
+        "newLabel": "Type new value. ",
+        "qty": 3
+      }
+    }
+  ]
+}

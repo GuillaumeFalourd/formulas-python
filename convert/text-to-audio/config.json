@@ -1,0 +1,71 @@
+{
+  "dockerImageBuilder": "cimg/python:3.8",
+  "inputs": [
+    {
+      "label": "Do you want to convert an existing file? ",
+      "name": "exist",
+      "type": "text",
+      "items": [
+        "yes",
+        "no"
+      ],
+      "tutorial": "If you have a .txt file to convert to audio.",
+      "required": true
+    },
+    {
+      "condition": {
+        "variable":"exist",
+        "operator":"==",
+        "value":"no"
+      },
+      "label": "Digit the text to convert to audio:",
+      "name": "text_to_convert",
+      "type": "text",
+      "tutorial": "Digit a text you want to listen."
+    },
+    {
+      "condition": {
+        "variable":"exist",
+        "operator":"==",
+        "value":"yes"
+      },
+      "label": "What is the path to the folder where the .txt file is located:",
+      "name": "file_path",
+      "type": "text",
+      "tutorial": "Example: /Users/dennisritchie/sample",
+      "cache" : {
+        "active": true,
+        "qtd" : 5,
+        "newLabel" : "Type new path"
+      }
+    },
+    {
+      "condition": {
+        "variable":"exist",
+        "operator":"==",
+        "value":"yes"
+      },
+      "label": "What is the txt file name:",
+      "name": "file_name",
+      "type": "text",
+      "tutorial": "Example: text.txt"
+    },
+    {
+      "label": "What is the text language?",
+      "name": "file_language",
+      "type": "text",
+      "items": [
+        "en",
+        "fr",
+        "pt"
+      ],
+      "tutorial": "Inform the language in which the text is written."
+    },
+    {
+      "label": "What will be the audio filename?",
+      "name": "audio_file_name",
+      "type": "text",
+      "tutorial": "Example: audio (we'll add the extension)."
+    }
+  ]
+}
