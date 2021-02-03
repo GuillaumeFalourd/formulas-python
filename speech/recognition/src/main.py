@@ -6,4 +6,4 @@ from formula import formula
 txt_file = os.environ.get("TXT_FILE")
 file_name = os.environ.get("FILE_NAME")
 
-formula.Run(txt_file, file_name)
+formula.run(txt_file, file_name)
