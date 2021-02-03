@@ -11,7 +11,7 @@ For mac:
 This command only works locally (verified on MacOS)
 
 ```bash
-rit python speech recognition
+rit speech recognition
 ```
 
 ## Description

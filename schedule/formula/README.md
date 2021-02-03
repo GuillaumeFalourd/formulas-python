@@ -1,11 +1,11 @@
 # Ritchie Formula
 
-## command
+## Command
 
 ```bash
-rit python scheduler
+rit schedule formula
 ```
 
 ## description
 
-description of formula
+Formula testing the execution of a formula through a scheduler.

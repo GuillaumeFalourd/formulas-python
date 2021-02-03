@@ -1,11 +1,11 @@
 # Ritchie Formula
 
-## command
+## Command
 
 ```bash
-rit python test boto3
+rit aws boto3
 ```
 
-## description
+## Description
 
-description of formula
+Formula testing aws boto3 librarie.

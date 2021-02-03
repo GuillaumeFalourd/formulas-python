@@ -11,11 +11,11 @@
 ## Command
 
 ```bash
-rit python convert text-to-audio
+rit convert text-to-audio
 ```
 
 ```bash
-rit python convert text-to-audio --docker
+rit convert text-to-audio --docker
 ```
 
 ## Description

@@ -3,7 +3,7 @@ from gtts import gTTS
 import os
 import platform
 
-def Run(exist, file_path, file_name, text_to_convert, file_language, audio_file_name):
+def run(exist, file_path, file_name, text_to_convert, file_language, audio_file_name):
 
     system = platform.system()
 

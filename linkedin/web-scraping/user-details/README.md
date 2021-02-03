@@ -3,9 +3,9 @@
 ## command
 
 ```bash
-rit linkedin get user-details
+rit linkedin web-scraping user-details
 ```
 
 ## description
 
-description of formula
+Formula with Selenium getting datas from LinkedIn User.

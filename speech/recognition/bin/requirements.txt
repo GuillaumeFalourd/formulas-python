@@ -1,3 +1,0 @@
-SpeechRecognition==3.8.1
-pyaudio
-inquirer==2.7.0
