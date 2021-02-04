@@ -23,4 +23,4 @@ The user can choose to save the speech on a TXT file or not.
 
 ## Sample
 
-![Execution](/docs/img/rit-python-speech-recognition.png)
+![Execution](/docs/img/rit-speech-recognition.png)
