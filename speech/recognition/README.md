@@ -1,8 +1,8 @@
-# Ritchie SPeech Recognition Formula
+# Ritchie Speech Recognition Formula
 
 ## Premisses
 
-For mac:
+For MacOS users:
 `brew install flac`
 `brew install pyaudio`
 
