@@ -1,0 +1,43 @@
+{
+  "dockerImageBuilder": "ritclizup/rit-python3-builder",
+  "inputs": [
+    {
+      "name": "rit_sender_email",
+      "type": "CREDENTIAL_EMAIL_ADDRESS"
+    },
+    {
+      "name": "rit_sender_password",
+      "type": "CREDENTIAL_EMAIL_PASSWORD"
+    },
+    {
+      "label": "Receiver email: ",
+      "name": "rit_receiver_email",
+      "required": true,
+      "tutorial": "The email address that will receive the message.",
+      "type": "text",
+      "pattern": {
+        "regex": "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",
+        "mismatchText": "Invalid email address"
+      },
+      "cache": {
+        "active": true,
+        "newLabel": "Type new value. ",
+        "qty": 3
+      }
+    },
+    {
+      "label": "Email subject title: ",
+      "name": "rit_email_subject",
+      "required": true,
+      "tutorial": "The email subject title",
+      "type": "text"
+    },
+    {
+      "label": "Email message: ",
+      "name": "rit_email_message",
+      "required": true,
+      "tutorial": "The email message body",
+      "type": "text"
+    }
+  ]
+}
