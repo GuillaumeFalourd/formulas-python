@@ -14,14 +14,14 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
 
 - [Convert Text to Audio](https://github.com/GuillaumeFalourd/formulas-python/tree/master/convert/text-to-audio): `rit convert text-to-audio`
 - [Speech Recognition](https://github.com/GuillaumeFalourd/formulas-python/tree/master/speech/recognition): `rit speech recognition`
+- [Send Email](https://github.com/GuillaumeFalourd/formulas-python/tree/master/send/email): `rit send email`
+- [Convert Image to Text](https://github.com/GuillaumeFalourd/formulas-python/tree/master/convert/image-to-text): `rit convert image-to-text`
 
 ### Doing
 
 - [Aws boto3](https://github.com/GuillaumeFalourd/formulas-python/tree/master/aws/boto3): `rit aws boto3`
 - [Linkedin web-scraping](https://github.com/GuillaumeFalourd/formulas-python/tree/master/linkedin/web-scraping): `rit linkedin web-scraping`
 - [Schedule formula](https://github.com/GuillaumeFalourd/formulas-python/tree/master/schedule/formula): `rit schedule formula`
-- [Send Email](https://github.com/GuillaumeFalourd/formulas-python/tree/master/send/email): `rit send email`
-- [Convert Image to Text](https://github.com/GuillaumeFalourd/formulas-python/tree/master/convert/image-to-text): `rit convert image-to-text`
 
 ## Use Formulas
 
