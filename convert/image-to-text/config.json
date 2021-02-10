@@ -1,0 +1,31 @@
+{
+  "dockerImageBuilder": "ritclizup/rit-python3-builder",
+  "inputs": [
+    { 
+      "label": "Absolute image path:",
+      "name": "rit_image_path",
+      "type": "text",
+      "tutorial": "Example: /Users/dennisritchie/test.jpg",
+      "required": true,
+      "cache": {
+        "active": true,
+        "qty": 5,
+        "newLabel": "Type another path:"
+      }
+    },
+    {
+      "label": "Image Language:",
+      "name": "rit_image_language",
+      "type": "text",
+      "required": true,
+      "default": "eng",
+      "items": [
+        "eng",
+        "por",
+        "fra",
+        "cat",
+        "ita"
+      ]
+    }
+  ]
+}
