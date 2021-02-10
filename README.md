@@ -21,6 +21,7 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
 - [Linkedin web-scraping](https://github.com/GuillaumeFalourd/formulas-python/tree/master/linkedin/web-scraping): `rit linkedin web-scraping`
 - [Schedule formula](https://github.com/GuillaumeFalourd/formulas-python/tree/master/schedule/formula): `rit schedule formula`
 - [Send Email](https://github.com/GuillaumeFalourd/formulas-python/tree/master/send/email): `rit send email`
+- [Convert Image to Text](https://github.com/GuillaumeFalourd/formulas-python/tree/master/convert/image-to-text): `rit convert image-to-text`
 
 ## Use Formulas
 
