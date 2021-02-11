@@ -1,0 +1,27 @@
+{
+  "dockerImageBuilder": "ritclizup/rit-python3-builder",
+  "inputs": [
+    {
+      "label": "Search Keywords:",
+      "name": "rit_keywords",
+      "required": true,
+      "tutorial": "The subject you are searching about. Example: Dennis Ritchie",
+      "type": "text"
+    },
+    {
+      "label": "Which language?",
+      "name": "rit_language",
+      "required": false,
+      "tutorial": "Select the article language. Example: en (for English)",
+      "type": "text",
+      "default": "en",
+      "items": [
+        "en",
+        "es",
+        "fr",
+        "pt",
+        "pt-br"
+      ]
+    }
+  ]
+}
