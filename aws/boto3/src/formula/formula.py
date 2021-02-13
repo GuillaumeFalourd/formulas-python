@@ -2,7 +2,7 @@
 import boto3
 import os
 
-def Run(access_key, secret_access_key, region, vpc_cidr, vpc_name):
+def run(access_key, secret_access_key, region, vpc_cidr, vpc_name):
 
     # client = boto3.client(
     #     'dynamodb',

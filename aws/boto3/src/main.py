@@ -9,4 +9,4 @@ region = os.environ.get("RIT_REGION")
 vpc_cidr = os.environ.get("RIT_VPC_CIDR")
 vpc_name = os.environ.get("RIT_VPC_NAME")
 
-formula.Run(access_key, secret_access_key, region, vpc_cidr, vpc_name)
+formula.run(access_key, secret_access_key, region, vpc_cidr, vpc_name)
