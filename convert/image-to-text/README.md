@@ -8,17 +8,16 @@ rit convert image-to-text
 
 ## Description
 
-This formula extracts and return the text in a specific language on an image.
+This formula extracts and return the text from an image.
 
-This formula has 2 inputs:
-
-- The absolute path to the image file
-- The language in which the text on the image is written
+This formula needs the absolute path to the image file as input.
 
 ## Sample
+
+GET
 
 ![Execution](/docs/img/rit-convert-image-to-text.png)
 
 FROM
 
-![Image](/docs/img/rit-convert-image-to-text-test-european.png)
+![Image](/docs/img/rit-convert-image-to-text-test-european.jpg)
