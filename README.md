@@ -16,7 +16,7 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
 - [Speech Recognition](https://github.com/GuillaumeFalourd/formulas-python/tree/master/speech/recognition): `rit speech recognition`
 - [Send Email](https://github.com/GuillaumeFalourd/formulas-python/tree/master/send/email): `rit send email`
 - [Convert Image to Text](https://github.com/GuillaumeFalourd/formulas-python/tree/master/convert/image-to-text): `rit convert image-to-text`
-- [Text Detection](https://github.com/GuillaumeFalourd/formulas-python/tree/master/detect/text-on-video): `rit detect text-on-video`
+- [Live Text Detection](https://github.com/GuillaumeFalourd/formulas-python/tree/master/detect/text-on-video): `rit detect text-on-video`
 - [Wikipedia Search](https://github.com/GuillaumeFalourd/formulas-python/tree/master/wiki/search): `rit wiki search`
 
 ### Doing
@@ -24,7 +24,6 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
 - [Aws boto3](https://github.com/GuillaumeFalourd/formulas-python/tree/master/aws/boto3): `rit aws boto3`
 - [Linkedin web-scraping](https://github.com/GuillaumeFalourd/formulas-python/tree/master/linkedin/web-scraping): `rit linkedin web-scraping`
 - [Schedule formula](https://github.com/GuillaumeFalourd/formulas-python/tree/master/schedule/formula): `rit schedule formula`
-- [Capture Image-Text](https://github.com/GuillaumeFalourd/formulas-python/tree/master/capture/image-text): `rit convert image-text`
 
 ## Use Formulas
 
