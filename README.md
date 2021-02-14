@@ -16,6 +16,7 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
 - [Speech Recognition](https://github.com/GuillaumeFalourd/formulas-python/tree/master/speech/recognition): `rit speech recognition`
 - [Send Email](https://github.com/GuillaumeFalourd/formulas-python/tree/master/send/email): `rit send email`
 - [Convert Image to Text](https://github.com/GuillaumeFalourd/formulas-python/tree/master/convert/image-to-text): `rit convert image-to-text`
+- [Text Detection](https://github.com/GuillaumeFalourd/formulas-python/tree/master/detect/text-on-video): `rit detect text-on-video`
 - [Wikipedia Search](https://github.com/GuillaumeFalourd/formulas-python/tree/master/wiki/search): `rit wiki search`
 
 ### Doing
