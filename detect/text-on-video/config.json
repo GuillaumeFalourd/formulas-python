@@ -1,0 +1,4 @@
+{
+  "dockerImageBuilder": "ritclizup/rit-python3-builder",
+  "inputs": [ ]
+}
