@@ -47,11 +47,12 @@ def run():
         "feature_fusion/concat_3"]
 
     # Load the pre-trained EAST text detector
-    print("[INFO] loading EAST text detector...")
+    print("[INFO] Loading EAST text detector...")
     net = cv2.dnn.readNet(args["east"])
 
     # Grab the reference to the webcam
-    print("[INFO] starting video stream...")
+    print("[INFO] Starting video stream...")
+    print("[INFO] Type the 'Q' key on the Text Detection Window to end the execution.")
     vs = VideoStream(src=0).start()
     time.sleep(1.0)
 
@@ -138,8 +139,8 @@ def run():
 
     # Stop the timer and display FPS information
     fps.stop()
-    print("[INFO] elasped time: {:.2f}".format(fps.elapsed()))
-    print("[INFO] approx. FPS: {:.2f}".format(fps.fps()))
+    print("[INFO] Elasped time: {:.2f}".format(fps.elapsed()))
+    print("[INFO] Approx. FPS: {:.2f}".format(fps.fps()))
 
     # Release the webcam pointer
     vs.stop()
