@@ -1,0 +1,34 @@
+{
+  "dockerImageBuilder": "ritclizup/rit-python3-builder",
+  "inputs": [
+    {
+      "label": "Detect Image or Video?",
+      "name": "rit_detection_type",
+      "required": true,
+      "tutorial": "Select Image or Video depending on the way you want to get the text.",
+      "type": "text",
+      "items":  [
+        "Image",
+        "Video"
+      ]
+    },
+    {
+      "condition": {
+        "variable": "rit_detection_type",
+        "operator": "==",
+        "value": "Image"
+      },
+      "label": "Absolute image path:",
+      "name": "rit_image_path",
+      "type": "text",
+      "tutorial": "Example: /Users/dennisritchie/test.jpg",
+      "required": false,
+      "cache": {
+        "active": true,
+        "qty": 5,
+        "newLabel": "Type another path:"
+      },
+      "default": ""
+    }
+  ]
+}
