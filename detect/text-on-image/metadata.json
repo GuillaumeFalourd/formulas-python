@@ -12,6 +12,6 @@
     ]
   },
   "tags": [
-    "convert", "image-to-text"
+    "detect", "text-on-image"
   ]
 }
