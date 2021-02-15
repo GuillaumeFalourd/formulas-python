@@ -1,0 +1,44 @@
+{
+  "dockerImageBuilder": "ritclizup/rit-python3-builder",
+  "inputs": [
+    {
+      "label": "Do you want to save a sample picture for face recognition?",
+      "name": "rit_sample_picture",
+      "type": "text",
+      "default": "",
+      "items":[
+        "yes",
+        "no"
+      ]
+    },
+    {
+      "condition": {
+        "variable": "rit_sample_picture",
+        "operator": "==",
+        "value": "yes"
+      },
+      "label": "Absolute picture path:",
+      "name": "rit_image_path",
+      "type": "text",
+      "tutorial": "Example: /Users/dennisritchie/test.jpg",
+      "default": "",
+      "cache": {
+        "active": true,
+        "qty": 5,
+        "newLabel": "Type another path:"
+      }
+    },
+    {
+      "condition": {
+        "variable": "rit_sample_picture",
+        "operator": "==",
+        "value": "yes"
+      },
+      "label": "Face name:",
+      "name": "rit_face_name",
+      "type": "text",
+      "tutorial": "Example: Dennis",
+      "default": "Ritchie Tester"
+    }
+  ]
+}
