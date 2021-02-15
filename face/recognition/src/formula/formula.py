@@ -6,21 +6,22 @@ def run(sample_picture, image_path, face_name):
     # Get a reference to webcam #0 (the default one)
     video_capture = cv2.VideoCapture(0)
 
-    # Load a sample picture and learn how to recognize it.
+    # Add Keanu Reaves picture from formula /images folder
+    reeves_image = face_recognition.load_image_file("images/keanu_reeves.jpg")
+    reeves_face_encoding = face_recognition.face_encodings(reeves_image)[0]
+
+    # Load a sample picture face encoding and the associated name
     if sample_picture == "yes":
         profile_image = face_recognition.load_image_file(image_path)
         profile_face_encoding = face_recognition.face_encodings(profile_image)[0]
 
         # Create arrays of known face encodings and their names
-        known_face_encodings = [
-            profile_face_encoding
-        ]
-        known_face_names = [
-            face_name,
-        ]
+        known_face_encodings = [profile_face_encoding, reeves_face_encoding]
+        known_face_names = [face_name, "Keanu Reeves"]
     else:
-        known_face_encodings = []
-        known_face_names = []
+        # Create arrays of Keanu Reeves face encoding and his name
+        known_face_encodings = [reeves_face_encoding]
+        known_face_names = ["Keanu Reeves"]
 
     # Initialize some variables
     face_locations = []
@@ -29,6 +30,7 @@ def run(sample_picture, image_path, face_name):
     process_this_frame = True
 
     print("[INFO] Starting video stream...")
+    print("[INFO] Type the 'Q' key on the Video Detection Window to end the execution.")
     while True:
         # Grab a single frame of video
         ret, frame = video_capture.read()
