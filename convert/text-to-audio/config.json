@@ -65,7 +65,8 @@
       "label": "What will be the audio filename?",
       "name": "audio_file_name",
       "type": "text",
-      "tutorial": "Example: audio (we'll add the extension)."
+      "tutorial": "Example: audio (we'll add the extension).",
+      "required": true
     }
   ]
 }
