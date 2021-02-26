@@ -140,7 +140,7 @@ def replay_or_quit():
     for event in pygame.event.get([pygame.KEYDOWN, pygame.KEYUP, pygame.QUIT]):
         if event.type == pygame.KEYUP: 
             if event.key == pygame.K_ESCAPE:
-                print("➡️  Thank you for playing with Ritchie CLI! 🆒")
+                print("➡️  Thank you for using Ritchie CLI! 🆒")
                 pygame.quit()
                 quit()
 
@@ -158,7 +158,7 @@ def msg_surface(text, difficulty):
     titleTextRect.center = surfaceWidth / 2, surfaceHeight / 2
     surface.blit(titletextSurf, titleTextRect)
 
-    typtextSurf, typTextRect = makeTextObjs('Press any key to continue', smallText)
+    typtextSurf, typTextRect = makeTextObjs('Press ANY KEY to continue or ESC to exit', smallText)
     typTextRect.center = surfaceWidth / 2, ((surfaceHeight / 2) + 100)
     surface.blit(typtextSurf, typTextRect)
 
