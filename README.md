@@ -20,6 +20,7 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
   - [Live Text Detection](https://github.com/GuillaumeFalourd/formulas-python/tree/master/detect/text-on-video): `rit detect text-on-video`
 - [Wikipedia Search](https://github.com/GuillaumeFalourd/formulas-python/tree/master/wiki/search): `rit wiki search`
 - [Send Email](https://github.com/GuillaumeFalourd/formulas-python/tree/master/send/email): `rit send email`
+- [Flappy Bird Game](https://github.com/GuillaumeFalourd/formulas-python/tree/master/game/flappy-bird): `rit game flappy-bird`
 
 ### Doing
 
