@@ -1,11 +1,13 @@
 # Ritchie Formula
 
-## command
+## Command
 
 ```bash
 rit object detection
 ```
 
-## description
+## Description
 
-description of formula
+A formula that allows to detect object on image or through webcam.
+
+_ON GOING_
