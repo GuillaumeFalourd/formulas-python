@@ -10,10 +10,10 @@ green = (34, 139, 34)
 blue = (64, 224, 208)
 
 # Screen configurations
-surfaceWidth = 800
-surfaceHeight = 500
+frame_size_x = 800
+frame_size_y = 500
 pygame.display.set_caption('Flappy Bird')
-surface = pygame.display.set_mode((surfaceWidth, surfaceHeight))
+game_window = pygame.display.set_mode((frame_size_x, frame_size_y))
 clock = pygame.time.Clock()
 
 # Image configuration
@@ -29,7 +29,7 @@ print("\033[38;5;214m🟠 Play using UP KEY 🔼 and DOWN KEY 🔽 \033[0m")
 print("\033[31m🔴 Press the ESCAPE KEY on the Flappy Bird GAME OVER screen to end the game! \033[0m")
 print("")
 
-def run(difficulty):
+def run(mode):
     pygame.init()
 
     # Game variables
@@ -37,11 +37,11 @@ def run(difficulty):
     y = 200
     y_move = 0
 
-    x_block = surfaceWidth
+    x_block = frame_size_x
     y_block = 0
 
     block_width = 50
-    block_height = random.randint(0, surfaceHeight / 2)
+    block_height = random.randint(0, frame_size_y / 2)
     gap = img_height * 5
 
     # Speed of blocks
@@ -60,25 +60,25 @@ def run(difficulty):
             # Keydown - when button is pressed keyup - when it's released
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
-                    if difficulty == "EASY":
+                    if mode == "EASY":
                         y_move = -2
-                    if difficulty == "MEDIUM":
+                    if mode == "MEDIUM":
                         y_move = -4
-                    if difficulty == "HARD":
+                    if mode == "HARD":
                         y_move = -6
 
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP:
-                    if difficulty == "EASY":
+                    if mode == "EASY":
                         y_move = 2
-                    if difficulty == "MEDIUM":
+                    if mode == "MEDIUM":
                         y_move = 4
-                    if difficulty == "HARD":
+                    if mode == "HARD":
                         y_move = 6
 
         y = y + y_move
 
-        surface.fill(blue)
+        game_window.fill(blue)
         bird(x, y, img)
         show_score(score)
 
@@ -105,19 +105,19 @@ def run(difficulty):
         x_block -= block_move
 
         # Boundaries
-        if y > surfaceHeight - img_height or y < 0:
-            gameOver(difficulty)
+        if y > frame_size_y - img_height or y < 0:
+            gameOver(mode)
 
         # Blocks on screen or not
         if x_block < (-1 * block_width):
-            x_block = surfaceWidth
-            block_height = random.randint(0, surfaceHeight / 2)
+            x_block = frame_size_x
+            block_height = random.randint(0, frame_size_y / 2)
 
         # Collision Detection
         # Detecting whether we are past the block or not in X
         if x + img_width > x_block and x < x_block + block_width:
             if y < block_height or y + img_height > block_height + gap:
-                gameOver(difficulty)
+                gameOver(mode)
 
         if x > x_block + block_width and x < x_block + block_width + img_width / 5:
             score += 1
@@ -129,19 +129,19 @@ def run(difficulty):
 def show_score(current_score):
     font = pygame.font.Font('freesansbold.ttf', 20)
     text = font.render('Score:' + str(current_score), True, white)
-    surface.blit(text, [3, 3])
+    game_window.blit(text, [3, 3])
 
 def blocks(x_block, y_block, block_width, block_height, gap):
-    pygame.draw.rect(surface, green, [x_block, y_block, block_width, block_height])
-    pygame.draw.rect(surface, green, [x_block, y_block + block_height + gap, block_width, surfaceHeight])
+    pygame.draw.rect(game_window, green, [x_block, y_block, block_width, block_height])
+    pygame.draw.rect(game_window, green, [x_block, y_block + block_height + gap, block_width, surfaceHeight])
 
-def makeTextObjs(text, font):
-    textSurface = font.render(text, True, white)
-    return textSurface, textSurface.get_rect()
+def make_text_objs(text, font):
+    text_surface = font.render(text, True, white)
+    return text_surface, text_surface.get_rect()
 
 def replay_or_quit():
     for event in pygame.event.get([pygame.KEYDOWN, pygame.KEYUP, pygame.QUIT]):
-        if event.type == pygame.KEYUP: 
+        if event.type == pygame.KEYUP:
             if event.key == pygame.K_ESCAPE:
                 print("➡️  Thank you for using Ritchie CLI! 🆒")
                 pygame.quit()
@@ -153,29 +153,29 @@ def replay_or_quit():
         return event.key
     return None
 
-def msg_surface(text, difficulty):
-    smallText = pygame.font.Font('freesansbold.ttf', 20)
-    largeText = pygame.font.Font('freesansbold.ttf', 130)
+def game_msg(text, mode):
+    small_text = pygame.font.Font('freesansbold.ttf', 20)
+    large_text = pygame.font.Font('freesansbold.ttf', 130)
 
-    titletextSurf, titleTextRect = makeTextObjs(text, largeText)
-    titleTextRect.center = surfaceWidth / 2, surfaceHeight / 2
-    surface.blit(titletextSurf, titleTextRect)
+    title_text_surf, title_text_rect = make_text_objs(text, large_text)
+    title_text_rect.center = frame_size_x / 2, frame_size_y / 2
+    game_window.blit(title_text_surf, title_text_rect)
 
-    typtextSurf, typTextRect = makeTextObjs('Press ANY KEY to continue or ESC to exit', smallText)
-    typTextRect.center = surfaceWidth / 2, ((surfaceHeight / 2) + 100)
-    surface.blit(typtextSurf, typTextRect)
+    type_text_surf, type_text_rect = make_text_objs('Press ANY KEY to continue or ESC to exit', small_text)
+    type_text_rect.center = frame_size_x / 2, ((frame_size_y / 2) + 100)
+    game_window.blit(type_text_surf, type_text_rect)
 
     pygame.display.update()
     time.sleep(1)
 
     while replay_or_quit() is None:
         clock.tick()
-    
-    run(difficulty)
 
-def gameOver(difficulty):
-    msg_surface('Game over', difficulty)
+    run(mode)
+
+def gameOver(mode):
+    game_msg('Game over', mode)
 
 
 def bird(x, y, image):
-    surface.blit(image, (x, y))
+    game_window.blit(image, (x, y))

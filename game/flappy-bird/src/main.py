@@ -3,6 +3,6 @@ import os
 
 from formula import formula
 
-difficulty = os.environ.get("RIT_DIFFICULTY")
+mode = os.environ.get("RIT_MODE")
 
-formula.run(difficulty)
+formula.run(mode)

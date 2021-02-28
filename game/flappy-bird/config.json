@@ -2,8 +2,8 @@
   "dockerImageBuilder": "ritclizup/rit-python3-builder",
   "inputs": [
     {
-      "label": "Difficulty:",
-      "name": "rit_difficulty",
+      "label": "Mode:",
+      "name": "rit_mode",
       "type": "text",
       "items": [
         "EASY",
