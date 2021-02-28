@@ -1,0 +1,17 @@
+{
+  "dockerImageBuilder": "ritclizup/rit-python3-builder",
+  "inputs": [
+    {
+      "label": "Absolute picture path:",
+      "name": "rit_image_path",
+      "type": "text",
+      "tutorial": "Example: /Users/dennisritchie/test.jpg",
+      "default": "",
+      "cache": {
+        "active": true,
+        "qty": 5,
+        "newLabel": "Type another path:"
+      }
+    }
+  ]
+}

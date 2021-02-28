@@ -9,7 +9,7 @@ white = (255, 255, 255)
 green = (34, 139, 34)
 blue = (64, 224, 208)
 
-# Screen resolution: width,height
+# Screen configurations
 surfaceWidth = 800
 surfaceHeight = 500
 surface = pygame.display.set_mode((surfaceWidth, surfaceHeight))
