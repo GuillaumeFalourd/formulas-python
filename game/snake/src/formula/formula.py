@@ -7,6 +7,7 @@ import random
 # Colors settings
 white = (255, 255, 255)
 green = (34, 139, 34)
+red = (255,0,0)
 blue = (64, 224, 208)
 
 # Screen configurations
