@@ -12,14 +12,16 @@ blue = (64, 224, 208)
 # Screen configurations
 surfaceWidth = 800
 surfaceHeight = 500
-surface = pygame.display.set_mode((surfaceWidth, surfaceHeight))
 pygame.display.set_caption('Flappy Bird')
+surface = pygame.display.set_mode((surfaceWidth, surfaceHeight))
 clock = pygame.time.Clock()
 
 # Image configuration
 img = pygame.image.load('images/flap.png')
 img_width = img.get_size()[0]
 img_height = img.get_size()[1]
+
+# Commands
 print("")
 print("\033[36m📚 HOW TO PLAY?\033[0m")
 print("\033[32m🟢 Start moving Flappy Bird with UP KEY 🔼 \033[0m")
@@ -29,7 +31,8 @@ print("")
 
 def run(difficulty):
     pygame.init()
-    
+
+    # Game variables
     x = 150
     y = 200
     y_move = 0
@@ -53,7 +56,7 @@ def run(difficulty):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 game_over = True
-                
+
             # Keydown - when button is pressed keyup - when it's released
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:

@@ -4,52 +4,27 @@ import sys
 import time
 import random
 
-# Window size
-frame_size_x = 800
-frame_size_y = 500
-
-# Initialise game window
-pygame.display.set_caption('Snake Eater')
-game_window = pygame.display.set_mode((frame_size_x, frame_size_y))
-clock = pygame.time.Clock()
-
-# Checks for errors encountered
-check_errors = pygame.init()
-# pygame.init() example output -> (6, 0)
-# second number in tuple gives number of errors
-if check_errors[1] > 0:
-    print(f'[!] Had {check_errors[1]} errors when initializing game, exiting...')
-    sys.exit(-1)
-else:
-    print('[+] Game successfully initialized')
-
-print("")
-print("\033[36m📚 HOW TO PLAY?\033[0m")
-print("\033[32m🟢 Play using UP KEY 🔼, DOWN KEY 🔽, LEFT KEY ◀️  and RIGHT KEY ▶️ \033[0m")
-print("\033[31m🔴 Press the ESCAPE KEY on the Snake Eater GAME OVER screen to end the game! \033[0m")
-print("")
-
-# Colors
-black = (0, 0, 0)
-red = (255, 0, 0)
+# Colors settings
 white = (255, 255, 255)
 green = (34, 139, 34)
 blue = (64, 224, 208)
 
-# FPS (frames per second) controller
-fps_controller = pygame.time.Clock()
+# Screen configurations
+frame_size_x = 800
+frame_size_y = 500
+pygame.display.set_caption('Snake')
+game_window = pygame.display.set_mode((frame_size_x, frame_size_y))
+clock = pygame.time.Clock()
+
+# Commands
+print("")
+print("\033[36m📚 HOW TO PLAY?\033[0m")
+print("\033[32m🟢 Play using UP KEY 🔼, DOWN KEY 🔽, LEFT KEY ◀️  and RIGHT KEY ▶️ \033[0m")
+print("\033[31m🔴 Press the ESCAPE KEY on the Snake GAME OVER screen to end the game! \033[0m")
+print("")
 
 def run(mode):
-    if mode == "EASY":
-        difficulty = 10
-    if mode == "MEDIUM":
-        difficulty = 25
-    if mode == "HARD":
-        difficulty = 40
-    if mode == "HARDER":
-        difficulty = 60
-    if mode == "HELL":
-        difficulty = 100
+    pygame.init()
 
     # Game variables
     snake_pos = [100, 50]
@@ -62,7 +37,18 @@ def run(mode):
     change_to = direction
     score = 0
 
-    # Main logic
+    if mode == "EASY":
+        difficulty = 10
+    if mode == "MEDIUM":
+        difficulty = 25
+    if mode == "HARD":
+        difficulty = 40
+    if mode == "HARDER":
+        difficulty = 60
+    if mode == "HELL":
+        difficulty = 100
+
+    # Game Loop/ Game State
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -116,12 +102,11 @@ def run(mode):
             food_pos = [random.randrange(1, (frame_size_x//10)) * 10, random.randrange(1, (frame_size_y//10)) * 10]
         food_spawn = True
 
-        # GFX
+        # To display only the snake body
         game_window.fill(blue)
+
+        # Snake body
         for pos in snake_body:
-            # Snake body
-            # .draw.rect(play_surface, color, xy-coordinate)
-            # xy-coordinate -> .Rect(x, y, size_x, size_y)
             pygame.draw.rect(game_window, green, pygame.Rect(pos[0], pos[1], 10, 10))
 
         # Snake food
@@ -142,20 +127,20 @@ def run(mode):
         # Refresh game screen
         pygame.display.update()
         # Refresh rate
-        fps_controller.tick(difficulty)
+        clock.tick(difficulty)
 
 # Game Over
 def msg_surface(text, mode):
-    smallText = pygame.font.Font('freesansbold.ttf', 20)
-    largeText = pygame.font.Font('freesansbold.ttf', 130)
+    small_text = pygame.font.Font('freesansbold.ttf', 20)
+    large_text = pygame.font.Font('freesansbold.ttf', 130)
 
-    titletextSurf, titleTextRect = makeTextObjs(text, largeText)
-    titleTextRect.center = frame_size_x / 2, frame_size_y / 2
-    game_window.blit(titletextSurf, titleTextRect)
+    title_text_surf, title_text_rect = make_text_objs(text, large_text)
+    title_text_rect.center = frame_size_x / 2, frame_size_y / 2
+    game_window.blit(title_text_surf, title_text_rect)
 
-    typtextSurf, typTextRect = makeTextObjs('Press ANY KEY to continue or ESC to exit', smallText)
-    typTextRect.center = frame_size_x / 2, ((frame_size_y / 2) + 100)
-    game_window.blit(typtextSurf, typTextRect)
+    type_text_surf, type_text_rect = make_text_objs('Press ANY KEY to continue or ESC to exit', small_text)
+    type_text_rect.center = frame_size_x / 2, ((frame_size_y / 2) + 100)
+    game_window.blit(type_text_surf, type_text_rect)
 
     pygame.display.update()
     time.sleep(1)
@@ -172,21 +157,18 @@ def replay_or_quit():
                 print("➡️  Thank you for using Ritchie CLI! 🆒")
                 pygame.quit()
                 quit()
-
         elif event.type == pygame.KEYDOWN:
             continue
-
         return event.key
     return None
 
-def makeTextObjs(text, font):
+def make_text_objs(text, font):
     textSurface = font.render(text, True, white)
     return textSurface, textSurface.get_rect()
 
 def game_over(mode):
     msg_surface('Game over', mode)
 
-# Score
 def show_score(score, choice, color, font, size):
     score_font = pygame.font.SysFont(font, size)
     score_surface = score_font.render('Score : ' + str(score), True, color)
@@ -196,4 +178,3 @@ def show_score(score, choice, color, font, size):
     else:
         score_rect.midtop = (frame_size_x/2, frame_size_y/1.25)
     game_window.blit(score_surface, score_rect)
-    # pygame.display.flip()
