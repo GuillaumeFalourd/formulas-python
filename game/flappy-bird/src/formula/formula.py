@@ -50,7 +50,7 @@ def run(mode):
     score = 0
     game_over = False
 
-    # Game Loop/ Game State
+    # Game Loop / Game State
     while not game_over:
 
         for event in pygame.event.get():
