@@ -48,7 +48,7 @@ def run(mode):
     if mode == "HELL":
         difficulty = 100
 
-    # Game Loop/ Game State
+    # Game Loop / Game State
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -56,12 +56,12 @@ def run(mode):
                 sys.exit()
             # Whenever a key is pressed down
             elif event.type == pygame.KEYDOWN:
-                # W -> Up; S -> Down; A -> Left; D -> Right
-                if event.key == pygame.K_UP or event.key == ord('w'):
+                # Z -> Up; S -> Down; Q -> Left; D -> Right
+                if event.key == pygame.K_UP or event.key == ord('z'):
                     change_to = 'UP'
                 if event.key == pygame.K_DOWN or event.key == ord('s'):
                     change_to = 'DOWN'
-                if event.key == pygame.K_LEFT or event.key == ord('a'):
+                if event.key == pygame.K_LEFT or event.key == ord('q'):
                     change_to = 'LEFT'
                 if event.key == pygame.K_RIGHT or event.key == ord('d'):
                     change_to = 'RIGHT'

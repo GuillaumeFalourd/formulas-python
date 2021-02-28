@@ -176,6 +176,5 @@ def game_msg(text, mode):
 def gameOver(mode):
     game_msg('Game over', mode)
 
-
 def bird(x, y, image):
     game_window.blit(image, (x, y))
