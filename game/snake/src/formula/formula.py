@@ -129,8 +129,21 @@ def run(mode):
         # Refresh rate
         clock.tick(difficulty)
 
+def show_score(score, choice, color, font, size):
+    score_font = pygame.font.SysFont(font, size)
+    score_surface = score_font.render('Score : ' + str(score), True, color)
+    score_rect = score_surface.get_rect()
+    if choice == 1:
+        score_rect.midtop = (frame_size_x/10, 15)
+    else:
+        score_rect.midtop = (frame_size_x/2, frame_size_y/1.25)
+    game_window.blit(score_surface, score_rect)
+
 # Game Over
-def msg_surface(text, mode):
+def game_over(mode):
+    game_msg('Game over', mode)
+
+def game_msg(text, mode):
     small_text = pygame.font.Font('freesansbold.ttf', 20)
     large_text = pygame.font.Font('freesansbold.ttf', 130)
 
@@ -150,6 +163,10 @@ def msg_surface(text, mode):
 
     run(mode)
 
+def make_text_objs(text, font):
+    text_surface = font.render(text, True, white)
+    return text_surface, text_surface.get_rect()
+
 def replay_or_quit():
     for event in pygame.event.get([pygame.KEYDOWN, pygame.KEYUP, pygame.QUIT]):
         if event.type == pygame.KEYUP:
@@ -161,20 +178,3 @@ def replay_or_quit():
             continue
         return event.key
     return None
-
-def make_text_objs(text, font):
-    textSurface = font.render(text, True, white)
-    return textSurface, textSurface.get_rect()
-
-def game_over(mode):
-    msg_surface('Game over', mode)
-
-def show_score(score, choice, color, font, size):
-    score_font = pygame.font.SysFont(font, size)
-    score_surface = score_font.render('Score : ' + str(score), True, color)
-    score_rect = score_surface.get_rect()
-    if choice == 1:
-        score_rect.midtop = (frame_size_x/10, 15)
-    else:
-        score_rect.midtop = (frame_size_x/2, frame_size_y/1.25)
-    game_window.blit(score_surface, score_rect)

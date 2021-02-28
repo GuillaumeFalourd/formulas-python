@@ -1,11 +1,19 @@
 # Ritchie Formula
 
-## command
+## Command
 
 ```bash
-rit game snake
+rit game flappy-bird
 ```
 
-## description
+## Description
 
-description of formula
+Formula para jogar Snake usando o Ritchie.
+
+## Demo
+
+![Execution](/docs/img/rit-game-snake-formula.png)
+
+![Game](/docs/img/rit-game-snake-play.png)
+
+![Game Over](/docs/img/rit-game-snake-game-over.png)
