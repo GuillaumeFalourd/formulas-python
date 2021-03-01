@@ -3,16 +3,15 @@ import time
 import pygame
 import random
 
-# Colors settings
-black = (0, 0, 0)
+# Screen colors settings
 white = (255, 255, 255)
 green = (34, 139, 34)
 blue = (64, 224, 208)
 
 # Screen resolution: width,height
-surfaceWidth = 800
-surfaceHeight = 500
-surface = pygame.display.set_mode((surfaceWidth, surfaceHeight))
+surface_width = 800
+surface_height = 500
+surface = pygame.display.set_mode((surface_width, surface_height))
 pygame.display.set_caption('Flappy Bird')
 clock = pygame.time.Clock()
 
@@ -29,25 +28,26 @@ print("")
 
 def run(difficulty):
     pygame.init()
-    
+
+    # Starting Position 
     x = 150
     y = 200
     y_move = 0
 
-    x_block = surfaceWidth
+    # Blocks configurations
+    x_block = surface_width
     y_block = 0
-
     block_width = 50
-    block_height = random.randint(0, surfaceHeight / 2)
+    block_height = random.randint(0, surface_height / 2)
     gap = img_height * 5
 
-    # Speed of blocks
+    # Blocks Speed
     block_move = 4
 
     score = 0
     game_over = False
 
-    # Game Loop/ Game State
+    # Game Loop
     while not game_over:
 
         for event in pygame.event.get():
@@ -81,7 +81,7 @@ def run(difficulty):
 
         # Adding difficulty relative to score
         # Increasing the speed and decreasing the gap of blocks
-
+        
         if 5 <= score < 10:
             block_move = 5
             gap = img_height * 3.3
@@ -102,19 +102,18 @@ def run(difficulty):
         x_block -= block_move
 
         # Boundaries
-        if y > surfaceHeight - img_height or y < 0:
-            gameOver(difficulty)
+        if y > surface_height - img_height or y < 0:
+            game_over(difficulty)
 
         # Blocks on screen or not
         if x_block < (-1 * block_width):
-            x_block = surfaceWidth
-            block_height = random.randint(0, surfaceHeight / 2)
+            x_block = surface_width
+            block_height = random.randint(0, surface_height / 2)
 
-        # Collision Detection
-        # Detecting whether we are past the block or not in X
+        # Collision Detection (Screen or Blocks)
         if x + img_width > x_block and x < x_block + block_width:
             if y < block_height or y + img_height > block_height + gap:
-                gameOver(difficulty)
+                game_over(difficulty)
 
         if x > x_block + block_width and x < x_block + block_width + img_width / 5:
             score += 1
@@ -130,9 +129,9 @@ def show_score(current_score):
 
 def blocks(x_block, y_block, block_width, block_height, gap):
     pygame.draw.rect(surface, green, [x_block, y_block, block_width, block_height])
-    pygame.draw.rect(surface, green, [x_block, y_block + block_height + gap, block_width, surfaceHeight])
+    pygame.draw.rect(surface, green, [x_block, y_block + block_height + gap, block_width, surface_height])
 
-def makeTextObjs(text, font):
+def make_text_objs(text, font):
     textSurface = font.render(text, True, white)
     return textSurface, textSurface.get_rect()
 
@@ -151,16 +150,16 @@ def replay_or_quit():
     return None
 
 def msg_surface(text, difficulty):
-    smallText = pygame.font.Font('freesansbold.ttf', 20)
-    largeText = pygame.font.Font('freesansbold.ttf', 130)
+    small_text = pygame.font.Font('freesansbold.ttf', 20)
+    large_text = pygame.font.Font('freesansbold.ttf', 130)
 
-    titletextSurf, titleTextRect = makeTextObjs(text, largeText)
-    titleTextRect.center = surfaceWidth / 2, surfaceHeight / 2
-    surface.blit(titletextSurf, titleTextRect)
+    title_text_surf, title_text_rect = make_text_objs(text, large_text)
+    title_text_rect.center = surface_width / 2, surface_height / 2
+    surface.blit(title_text_surf, title_text_rect)
 
-    typtextSurf, typTextRect = makeTextObjs('Press ANY KEY to continue or ESC to exit', smallText)
-    typTextRect.center = surfaceWidth / 2, ((surfaceHeight / 2) + 100)
-    surface.blit(typtextSurf, typTextRect)
+    type_text_surf, type_text_rect = make_text_objs('Press ANY KEY to continue or ESC to exit', small_text)
+    type_text_rect.center = surface_width / 2, ((surface_height / 2) + 100)
+    surface.blit(type_text_surf, type_text_rect)
 
     pygame.display.update()
     time.sleep(1)
@@ -170,9 +169,8 @@ def msg_surface(text, difficulty):
     
     run(difficulty)
 
-def gameOver(difficulty):
+def game_over(difficulty):
     msg_surface('Game over', difficulty)
-
 
 def bird(x, y, image):
     surface.blit(image, (x, y))
