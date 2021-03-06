@@ -3,4 +3,6 @@ import os
 
 from formula import formula
 
-formula.run()
+mode = os.environ.get("RIT_MODE")
+
+formula.run(mode)

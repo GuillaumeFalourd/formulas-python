@@ -17,10 +17,10 @@ print("\033[32m🟠 Move the ship using UP KEY 🔼, DOWN KEY 🔽, LEFT KEY ◀
 print("\033[31m🔴 Press the \"ESCAPE\" KEY on the Alien Invasion screen to end the game! \033[0m")
 print("")
 
-def run():
+def run(mode):
     # Initialize game and create a screen object
 	pygame.init()
-	ai_settings = Settings()
+	ai_settings = Settings(mode)
 
 	screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
 
