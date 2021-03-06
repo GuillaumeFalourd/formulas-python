@@ -26,7 +26,7 @@ print("")
 print("\033[36m📚 HOW TO PLAY?\033[0m")
 print("\033[32m🟢 Start moving Flappy Bird with UP KEY 🔼 \033[0m")
 print("\033[38;5;214m🟠 Play using UP KEY 🔼 and DOWN KEY 🔽 \033[0m")
-print("\033[31m🔴 Press the ESCAPE KEY on the Flappy Bird GAME OVER screen to end the game! \033[0m")
+print("\033[31m🔴 Press the \"ESCAPE\" KEY on the Flappy Bird \"GAME OVER\" screen to end the game! \033[0m")
 print("")
 
 def run(mode):
