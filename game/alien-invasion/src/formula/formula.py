@@ -8,6 +8,15 @@ from classes.alien import Alien
 from classes.game_stats import GameStats
 from classes.button import Button
 
+# Commands
+print("")
+print("\033[36m📚 HOW TO PLAY?\033[0m")
+print("\033[32m🟢 Click the \"PLAY\" button to start \033[0m")
+print("\033[32m🟡 Shoot bullets using the \"SPACE\" KEY\033[0m")
+print("\033[32m🟠 Move the ship using UP KEY 🔼, DOWN KEY 🔽, LEFT KEY ◀️  and RIGHT KEY ▶️ \033[0m")
+print("\033[31m🔴 Press the \"Q\" KEY on the Alien Invasion screen to end the game! \033[0m")
+print("")
+
 def run():
     # Initialize game and create a screen object
 	pygame.init()
@@ -43,5 +52,5 @@ def run():
 			ship.update()
 			gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
 			gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
-		
+
 		gf.update_screen(ai_settings, screen, stats, ship, aliens, bullets, play_button)
