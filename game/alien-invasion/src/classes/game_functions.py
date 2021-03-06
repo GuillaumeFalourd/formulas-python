@@ -124,6 +124,7 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
 	elif event.key == pygame.K_SPACE:
 		fire_bullet(ai_settings, screen, ship, bullets)
 	elif event.key == pygame.K_ESCAPE:
+		print("➡️  Thank you for using Ritchie CLI! 🆒")
 		sys.exit()
 
 
