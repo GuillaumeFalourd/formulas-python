@@ -160,6 +160,7 @@ def update_screen(ai_settings, screen, stats, ship, aliens, bullets, play_button
 
 	ship.blitme()
 	aliens.draw(screen)
+	show_score(ai_settings.score, screen)
 
 	# Draw the play button if the game is inactive.
 	if not stats.game_active:
@@ -184,8 +185,16 @@ def check_bullet_alien_collision(ai_settings, screen, ship, aliens, bullets):
 	"""Respond to bullet-alien collision."""
 	# Remove any bullets and aliens that have collided.
 	collisions = pygame.sprite.groupcollide(bullets, aliens, True, True) # reference in Pygame docs
+	if len(collisions) > 0:
+		ai_settings.score += 1
+		show_score(ai_settings.score, screen)
 
 	if len(aliens) == 0:
 		# Destroy existing bullets and create new fleet.
 		bullets.empty()
 		create_fleet(ai_settings, screen, ship, aliens)
+
+def show_score(current_score, screen):
+    font = pygame.font.Font('freesansbold.ttf', 20)
+    text = font.render('Score:' + str(current_score), True, (255, 255, 255))
+    screen.blit(text, [3, 3])

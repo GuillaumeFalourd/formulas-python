@@ -44,8 +44,10 @@ def run(mode):
 	# Create the fleet of aliens.
 	gf.create_fleet(ai_settings, screen, ship, aliens)
 
+	game_over = False
+
 	# Start the main loop for the game
-	while True:
+	while not game_over:
 		# Watch for the keyboard and mouse events
 		gf.check_events(ai_settings, screen, stats, play_button, ship, bullets)
 		if stats.game_active:

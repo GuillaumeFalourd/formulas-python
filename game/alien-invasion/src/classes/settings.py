@@ -3,10 +3,10 @@ class Settings():
 
 	def __init__(self, mode):
 		"""Initialize the game's settings."""
+		self.score = 0
+
 		# Screen settings
-		self.screen_width = 1200
-		self.screen_height = 750
-		self.bg_color = (0, 0, 0)
+		self.screen_configurations()
 
 		# Bullet settings
 		self.bullet_configurations(mode)
@@ -16,6 +16,11 @@ class Settings():
 
 		# Alien settings
 		self.alien_configurations(mode)
+
+	def screen_configurations(self):
+		self.screen_width = 1200
+		self.screen_height = 750
+		self.bg_color = (0, 0, 0)
 
 	def bullet_configurations(self, mode):
 		self.bullet_width = 3
