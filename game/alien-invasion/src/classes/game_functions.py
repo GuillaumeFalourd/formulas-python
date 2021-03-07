@@ -1,8 +1,11 @@
 import sys
-from time import sleep
+import time
 import pygame
+import formula.formula as f
 from classes.bullet import Bullet
 from classes.alien import Alien
+
+clock = pygame.time.Clock()
 
 def get_number_aliens_x(ai_settings, alien_width):
 	"""Determine the number of aliens which fit in the row."""
@@ -50,45 +53,34 @@ def change_fleet_direction(ai_settings, aliens):
 		alien.rect.y += ai_settings.fleet_drop_speed
 	ai_settings.fleet_direction *= -1 # to change direction in next drop
 
-def ship_hit(ai_settings, stats, screen, ship, aliens, bullets):
+def ship_hit(ai_settings, stats, screen, ship, aliens, bullets, mode):
 	"""Respond to ship being hit by alien."""
 	if stats.ships_left > 0:
-		# Decrrement ships_left
-		stats.ships_left -= 1
+		gameOver(mode, ai_settings, screen)
 
-		# Empty the list of aliens and bullets.
-		aliens.empty()
-		bullets.empty()
-
-		# Create a new fleet and center the ship.
-		create_fleet(ai_settings, screen, ship, aliens)
-		ship.center_ship()
-
-		# Pause.
-		sleep(0.5)
 	else:
 		stats.game_active = False
 
-def check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets):
+def check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets, mode):
 	"""Check if any aliens have reached the bottom of the screen."""
 	screen_rect = screen.get_rect()
 	for alien in aliens.sprites():
 		if alien.rect.bottom >= screen_rect.bottom:
 			# Treat this the same as if the ship got hit.
-			ship_hit(ai_settings, stats, screen, ship, aliens, bullets)
+			ship_hit(ai_settings, stats, screen, ship, aliens, bullets, mode)
 			break
 
-def update_aliens(ai_settings, stats, screen, ship, aliens, bullets):
+def update_aliens(ai_settings, stats, screen, ship, aliens, bullets, mode):
 	"""Check if the fleet is at an edge and update the positions of all aliens in the fleet"""
 	check_fleet_edges(ai_settings, aliens)
 	aliens.update()
 
 	# Look for alien-ship collisions.
 	if pygame.sprite.spritecollideany(ship, aliens):
-		ship_hit(ai_settings, stats, screen, ship, aliens, bullets)
+		ship_hit(ai_settings, stats, screen, ship, aliens, bullets, mode)
 
 	# Check for aliens hitting the bottom of the screen.
-	check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets)
+	check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets, mode)
 
 def check_events(ai_settings, screen, stats, play_button, ship, bullets):
 	"""Respond to keypressed and mouse events."""
@@ -198,3 +190,44 @@ def show_score(current_score, screen):
     font = pygame.font.Font('freesansbold.ttf', 20)
     text = font.render('Score:' + str(current_score), True, (255, 255, 255))
     screen.blit(text, [3, 3])
+
+def make_text_objs(text, font):
+    text_surface = font.render(text, True, (255, 255, 255))
+    return text_surface, text_surface.get_rect()
+
+def replay_or_quit():
+    for event in pygame.event.get([pygame.KEYDOWN, pygame.KEYUP, pygame.QUIT]):
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_ESCAPE:
+                print("➡️  Thank you for using Ritchie CLI! 🆒")
+                pygame.quit()
+                quit()
+
+        elif event.type == pygame.KEYDOWN:
+            continue
+
+        return event.key
+    return None
+
+def game_msg(text, ai_settings, screen, mode):
+    small_text = pygame.font.Font('freesansbold.ttf', 20)
+    large_text = pygame.font.Font('freesansbold.ttf', 130)
+
+    title_text_surf, title_text_rect = make_text_objs(text, large_text)
+    title_text_rect.center = ai_settings.screen_width / 2, ai_settings.screen_height / 2
+    screen.blit(title_text_surf, title_text_rect)
+
+    type_text_surf, type_text_rect = make_text_objs('Press ANY KEY to continue or ESC to exit', small_text)
+    type_text_rect.center = ai_settings.screen_width / 2, ((ai_settings.screen_height / 2) + 100)
+    screen.blit(type_text_surf, type_text_rect)
+
+    pygame.display.update()
+    time.sleep(1)
+
+    while replay_or_quit() is None:
+	    clock.tick()
+
+    f.run(mode)
+
+def gameOver(mode, ai_settings, screen):
+    game_msg('Game over', ai_settings, screen, mode)
