@@ -133,7 +133,7 @@ def show_score(current_score):
 
 def blocks(x_block, y_block, block_width, block_height, gap):
     pygame.draw.rect(game_window, green, [x_block, y_block, block_width, block_height])
-    pygame.draw.rect(game_window, green, [x_block, y_block + block_height + gap, block_width, surfaceHeight])
+    pygame.draw.rect(game_window, green, [x_block, y_block + block_height + gap, block_width, block_height])
 
 def make_text_objs(text, font):
     text_surface = font.render(text, True, white)
