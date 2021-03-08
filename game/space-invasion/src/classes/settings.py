@@ -39,9 +39,9 @@ class Settings():
 	def ship_configurations(self, mode):
 		self.ship_limit = 3
 		if mode == "EASY":
-			self.ship_speed_factor = 1.5
+			self.ship_speed_factor = 2
 		if mode == "MEDIUM":
-			self.ship_speed_factor = 1.25
+			self.ship_speed_factor = 1.5
 		if mode == "HARD":
 			self.ship_speed_factor = 1
 
