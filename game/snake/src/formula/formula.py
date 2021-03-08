@@ -21,7 +21,7 @@ clock = pygame.time.Clock()
 print("")
 print("\033[36m📚 HOW TO PLAY?\033[0m")
 print("\033[32m🟢 Play using UP KEY 🔼, DOWN KEY 🔽, LEFT KEY ◀️  and RIGHT KEY ▶️ \033[0m")
-print("\033[31m🔴 Press the ESCAPE KEY on the Snake GAME OVER screen to end the game! \033[0m")
+print("\033[31m🔴 Press the \"ESCAPE\" KEY on the Snake \"GAME OVER\" screen to end the game! \033[0m")
 print("")
 
 def run(mode):

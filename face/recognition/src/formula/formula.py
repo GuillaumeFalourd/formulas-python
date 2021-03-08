@@ -17,11 +17,11 @@ def run(sample_picture, image_path, face_name):
 
         # Create arrays of known face encodings and their names
         known_face_encodings = [profile_face_encoding, reeves_face_encoding]
-        known_face_names = [face_name, "Keanu Reeves"]
+        known_face_names = [face_name, "K. Reeves"]
     else:
         # Create arrays of Keanu Reeves face encoding and his name
         known_face_encodings = [reeves_face_encoding]
-        known_face_names = ["Keanu Reeves"]
+        known_face_names = ["K. Reeves"]
 
     # Initialize some variables
     face_locations = []

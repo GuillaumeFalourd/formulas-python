@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-from imageai.Detection import ObjectDetection
 import os
+import imageai
 
 def run(image_path):
     print("PATH:", image_path)
     execution_path = os.getcwd()
 
-    detector = ObjectDetection()
+    detector = imageai.Detection.ObjectDetection()
     detector.setModelTypeAsRetinaNet()
 
     # Test

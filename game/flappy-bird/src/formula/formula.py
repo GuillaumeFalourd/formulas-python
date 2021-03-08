@@ -1,148 +1,157 @@
 #!/usr/bin/python3
-import pygame
-import sys
 import time
+import pygame
 import random
 
 # Colors settings
+black = (0, 0, 0)
 white = (255, 255, 255)
 green = (34, 139, 34)
-red = (255,0,0)
 blue = (64, 224, 208)
 
 # Screen configurations
 frame_size_x = 800
 frame_size_y = 500
-pygame.display.set_caption('Snake')
+pygame.display.set_caption('Flappy Bird')
 game_window = pygame.display.set_mode((frame_size_x, frame_size_y))
 clock = pygame.time.Clock()
+
+# Image configuration
+img = pygame.image.load('images/flap.png')
+img_width = img.get_size()[0]
+img_height = img.get_size()[1]
 
 # Commands
 print("")
 print("\033[36m📚 HOW TO PLAY?\033[0m")
-print("\033[32m🟢 Play using UP KEY 🔼, DOWN KEY 🔽, LEFT KEY ◀️  and RIGHT KEY ▶️ \033[0m")
-print("\033[31m🔴 Press the ESCAPE KEY on the Snake GAME OVER screen to end the game! \033[0m")
+print("\033[32m🟢 Start moving Flappy Bird with UP KEY 🔼 \033[0m")
+print("\033[38;5;214m🟠 Play using UP KEY 🔼 and DOWN KEY 🔽 \033[0m")
+print("\033[31m🔴 Press the \"ESCAPE\" KEY on the Flappy Bird \"GAME OVER\" screen to end the game! \033[0m")
 print("")
 
 def run(mode):
     pygame.init()
 
     # Game variables
-    snake_pos = [100, 50]
-    snake_body = [[100, 50], [100-10, 50], [100-(2*10), 50]]
+    x = 150
+    y = 200
+    y_move = 0
 
-    food_pos = [random.randrange(1, (frame_size_x//10)) * 10, random.randrange(1, (frame_size_y//10)) * 10]
-    food_spawn = True
+    x_block = frame_size_x
+    y_block = 0
 
-    direction = 'RIGHT'
-    change_to = direction
+    block_width = 50
+    block_height = random.randint(0, frame_size_y / 2)
+    gap = img_height * 5
+
+    # Speed of blocks
+    block_move = 4
+
     score = 0
-
-    if mode == "EASY":
-        difficulty = 10
-    if mode == "MEDIUM":
-        difficulty = 25
-    if mode == "HARD":
-        difficulty = 40
-    if mode == "HARDER":
-        difficulty = 60
-    if mode == "HELL":
-        difficulty = 100
+    game_over = False
 
     # Game Loop / Game State
-    while True:
+    while not game_over:
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
-            # Whenever a key is pressed down
-            elif event.type == pygame.KEYDOWN:
-                # Z -> Up; S -> Down; Q -> Left; D -> Right
-                if event.key == pygame.K_UP or event.key == ord('z'):
-                    change_to = 'UP'
-                if event.key == pygame.K_DOWN or event.key == ord('s'):
-                    change_to = 'DOWN'
-                if event.key == pygame.K_LEFT or event.key == ord('q'):
-                    change_to = 'LEFT'
-                if event.key == pygame.K_RIGHT or event.key == ord('d'):
-                    change_to = 'RIGHT'
-                # Esc -> Create event to quit the game
-                if event.key == pygame.K_ESCAPE:
-                    pygame.event.post(pygame.event.Event(pygame.QUIT))
+                game_over = True
 
-        # Making sure the snake cannot move in the opposite direction instantaneously
-        if change_to == 'UP' and direction != 'DOWN':
-            direction = 'UP'
-        if change_to == 'DOWN' and direction != 'UP':
-            direction = 'DOWN'
-        if change_to == 'LEFT' and direction != 'RIGHT':
-            direction = 'LEFT'
-        if change_to == 'RIGHT' and direction != 'LEFT':
-            direction = 'RIGHT'
+            # Keydown - when button is pressed keyup - when it's released
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_UP:
+                    if mode == "EASY":
+                        y_move = -2
+                    if mode == "MEDIUM":
+                        y_move = -4
+                    if mode == "HARD":
+                        y_move = -6
 
-        # Moving the snake
-        if direction == 'UP':
-            snake_pos[1] -= 10
-        if direction == 'DOWN':
-            snake_pos[1] += 10
-        if direction == 'LEFT':
-            snake_pos[0] -= 10
-        if direction == 'RIGHT':
-            snake_pos[0] += 10
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_UP:
+                    if mode == "EASY":
+                        y_move = 2
+                    if mode == "MEDIUM":
+                        y_move = 4
+                    if mode == "HARD":
+                        y_move = 6
 
-        # Snake body growing mechanism
-        snake_body.insert(0, list(snake_pos))
-        if snake_pos[0] == food_pos[0] and snake_pos[1] == food_pos[1]:
-            score += 1
-            food_spawn = False
-        else:
-            snake_body.pop()
+        y = y + y_move
 
-        # Spawning food on the screen
-        if not food_spawn:
-            food_pos = [random.randrange(1, (frame_size_x//10)) * 10, random.randrange(1, (frame_size_y//10)) * 10]
-        food_spawn = True
-
-        # To display only the snake body
         game_window.fill(blue)
+        bird(x, y, img)
+        show_score(score)
 
-        # Snake body
-        for pos in snake_body:
-            pygame.draw.rect(game_window, green, pygame.Rect(pos[0], pos[1], 10, 10))
+        # Adding difficulty relative to score
+        # Increasing the speed and decreasing the gap of blocks
 
-        # Snake food
-        pygame.draw.rect(game_window, red, pygame.Rect(food_pos[0], food_pos[1], 10, 10))
+        if 5 <= score < 10:
+            block_move = 5
+            gap = img_height * 3.3
 
-        # Game Over conditions
-        # Getting out of bounds
-        if snake_pos[0] < 0 or snake_pos[0] > frame_size_x-10:
-            game_over(mode)
-        if snake_pos[1] < 0 or snake_pos[1] > frame_size_y-10:
-            game_over(mode)
-        # Touching the snake body
-        for block in snake_body[1:]:
-            if snake_pos[0] == block[0] and snake_pos[1] == block[1]:
-                game_over(mode)
+        if 10 <= score < 15:
+            block_move = 6
+            gap = img_height * 3.1
 
-        show_score(score, 1, white, 'consolas', 20)
-        # Refresh game screen
+        if 15 <= score < 20:
+            block_move = 7
+            gap = img_height * 3
+
+        if score >= 20:
+            block_move = 8
+            gap = img_height * 2.5
+
+        blocks(x_block, y_block, block_width, block_height, gap)
+        x_block -= block_move
+
+        # Boundaries
+        if y > frame_size_y - img_height or y < 0:
+            gameOver(mode)
+
+        # Blocks on screen or not
+        if x_block < (-1 * block_width):
+            x_block = frame_size_x
+            block_height = random.randint(0, frame_size_y / 2)
+
+        # Collision Detection
+        # Detecting whether we are past the block or not in X
+        if x + img_width > x_block and x < x_block + block_width:
+            if y < block_height or y + img_height > block_height + gap:
+                gameOver(mode)
+
+        if x > x_block + block_width and x < x_block + block_width + img_width / 5:
+            score += 1
+
         pygame.display.update()
-        # Refresh rate
-        clock.tick(difficulty)
+        clock.tick(80)
+    pygame.quit()
 
-def show_score(score, choice, color, font, size):
-    score_font = pygame.font.SysFont(font, size)
-    score_surface = score_font.render('Score : ' + str(score), True, color)
-    score_rect = score_surface.get_rect()
-    if choice == 1:
-        score_rect.midtop = (frame_size_x/10, 15)
-    else:
-        score_rect.midtop = (frame_size_x/2, frame_size_y/1.25)
-    game_window.blit(score_surface, score_rect)
+def show_score(current_score):
+    font = pygame.font.Font('freesansbold.ttf', 20)
+    text = font.render('Score:' + str(current_score), True, white)
+    game_window.blit(text, [3, 3])
 
-# Game Over
-def game_over(mode):
-    game_msg('Game over', mode)
+def blocks(x_block, y_block, block_width, block_height, gap):
+    pygame.draw.rect(game_window, green, [x_block, y_block, block_width, block_height])
+    pygame.draw.rect(game_window, green, [x_block, y_block + block_height + gap, block_width, block_height])
+
+def make_text_objs(text, font):
+    text_surface = font.render(text, True, white)
+    return text_surface, text_surface.get_rect()
+
+def replay_or_quit():
+    for event in pygame.event.get([pygame.KEYDOWN, pygame.KEYUP, pygame.QUIT]):
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_ESCAPE:
+                print("➡️  Thank you for using Ritchie CLI! 🆒")
+                pygame.quit()
+                quit()
+
+        elif event.type == pygame.KEYDOWN:
+            continue
+
+        return event.key
+    return None
 
 def game_msg(text, mode):
     small_text = pygame.font.Font('freesansbold.ttf', 20)
@@ -164,18 +173,8 @@ def game_msg(text, mode):
 
     run(mode)
 
-def make_text_objs(text, font):
-    text_surface = font.render(text, True, white)
-    return text_surface, text_surface.get_rect()
+def gameOver(mode):
+    game_msg('Game over', mode)
 
-def replay_or_quit():
-    for event in pygame.event.get([pygame.KEYDOWN, pygame.KEYUP, pygame.QUIT]):
-        if event.type == pygame.KEYUP:
-            if event.key == pygame.K_ESCAPE:
-                print("➡️  Thank you for using Ritchie CLI! 🆒")
-                pygame.quit()
-                quit()
-        elif event.type == pygame.KEYDOWN:
-            continue
-        return event.key
-    return None
+def bird(x, y, image):
+    game_window.blit(image, (x, y))
