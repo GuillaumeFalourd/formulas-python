@@ -23,6 +23,7 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
 - [Snake Game](https://github.com/GuillaumeFalourd/formulas-python/tree/master/game/snake): `rit game snake`
 - [Flappy Bird Game](https://github.com/GuillaumeFalourd/formulas-python/tree/master/game/flappy-bird): `rit game flappy-bird`
 - [Alien Invasion Game](https://github.com/GuillaumeFalourd/formulas-python/tree/master/game/alien-invasion): `rit game alien-invasion`
+- [Pacman Game](https://github.com/GuillaumeFalourd/formulas-python/tree/master/game/pacman): `rit game pacman`
 
 ### Doing
 

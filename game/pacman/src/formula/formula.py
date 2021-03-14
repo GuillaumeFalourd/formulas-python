@@ -11,7 +11,14 @@ blue = (0,0,255)
 green = (0,255,0)
 red = (255,0,0)
 purple = (255,0,255)
-yellow   = ( 255, 255,   0)
+yellow   = (255,255,0)
+
+# Commands
+print("")
+print("\033[36m📚 HOW TO PLAY?\033[0m")
+print("\033[32m🟢 Move Pacman using UP KEY 🔼, DOWN KEY 🔽, LEFT KEY ◀️  and RIGHT KEY ▶️ \033[0m")
+print("\033[31m🔴 Press the \"ESCAPE\" KEY on the PACMAN GAME OVER screen to end the game! \033[0m")
+print("")
 
 #Add music
 pygame.mixer.init()
@@ -137,39 +144,23 @@ bl = len(Blinky_directions)-1
 il = len(Inky_directions)-1
 cl = len(Clyde_directions)-1
 
-# Call this function so the Pygame library can initialize itself
 pygame.init()
 
 # Create an 606x606 sized screen
 screen = pygame.display.set_mode([606, 606])
 
-# This is a list of 'sprites.' Each block in the program is
-# added to this list. The list is managed by a class called 'RenderPlain.'
-
-# Set the title of the window
+# Window Title
 pygame.display.set_caption('Pacman')
 
-# Create a surface we can draw on
+# Surface Creation
 background = pygame.Surface(screen.get_size())
-
-# Used for converting color maps and such
 background = background.convert()
-
-# Fill the screen with a black background
 background.fill(black)
 
 clock = pygame.time.Clock()
 
 pygame.font.init()
 font = pygame.font.Font("freesansbold.ttf", 24)
-
-# Commands
-print("")
-print("\033[36m📚 HOW TO PLAY?\033[0m")
-print("\033[32m🟢 Click the \"PLAY\" button to start \033[0m")
-print("\033[32m🟠 Move Pacman using UP KEY 🔼, DOWN KEY 🔽, LEFT KEY ◀️  and RIGHT KEY ▶️ \033[0m")
-print("\033[31m🔴 Press the \"ESCAPE\" KEY on the PACMAN GAME OVER screen to end the game! \033[0m")
-print("")
 
 def run():
     startGame()
@@ -178,15 +169,10 @@ def run():
 def startGame():
 
   all_sprites_list = pygame.sprite.RenderPlain()
-
   block_list = pygame.sprite.RenderPlain()
-
   monsta_list = pygame.sprite.RenderPlain()
-
   pacman_collide = pygame.sprite.RenderPlain()
-
   wall_list = setupRoomOne(all_sprites_list)
-
   gate = setupGate(all_sprites_list)
 
   p_turn = 0
@@ -201,7 +187,6 @@ def startGame():
   c_turn = 0
   c_steps = 0
 
-  # Create the player paddle object
   Pacman = Player( w, p_h, "images/pacman.png" )
   all_sprites_list.add(Pacman)
   pacman_collide.add(Pacman)
@@ -260,26 +245,24 @@ def startGame():
               done=True
 
           if event.type == pygame.KEYDOWN:
-              if event.key == pygame.K_LEFT:
+              if event.key == pygame.K_LEFT or event.key == ord('q'):
                   Pacman.changespeed(-30,0)
-              if event.key == pygame.K_RIGHT:
+              if event.key == pygame.K_RIGHT or event.key == ord('d'):
                   Pacman.changespeed(30,0)
-              if event.key == pygame.K_UP:
+              if event.key == pygame.K_UP or event.key == ord('z'):
                   Pacman.changespeed(0,-30)
-              if event.key == pygame.K_DOWN:
+              if event.key == pygame.K_DOWN or event.key == ord('s'):
                   Pacman.changespeed(0,30)
 
           if event.type == pygame.KEYUP:
-              if event.key == pygame.K_LEFT:
+              if event.key == pygame.K_LEFT or event.key == ord('q'):
                   Pacman.changespeed(30,0)
-              if event.key == pygame.K_RIGHT:
+              if event.key == pygame.K_RIGHT or event.key == ord('d'):
                   Pacman.changespeed(-30,0)
-              if event.key == pygame.K_UP:
+              if event.key == pygame.K_UP or event.key == ord('z'):
                   Pacman.changespeed(0,30)
-              if event.key == pygame.K_DOWN:
+              if event.key == pygame.K_DOWN or event.key == ord('s'):
                   Pacman.changespeed(0,-30)
-
-      # ALL EVENT PROCESSING SHOULD GO ABOVE THIS COMMENT
 
       # ALL GAME LOGIC SHOULD GO BELOW THIS COMMENT
       Pacman.update(wall_list,gate)
@@ -315,8 +298,6 @@ def startGame():
       if len(blocks_hit_list) > 0:
           score +=len(blocks_hit_list)
 
-      # ALL GAME LOGIC SHOULD GO ABOVE THIS COMMENT
-
       # ALL CODE TO DRAW SHOULD GO BELOW THIS COMMENT
       screen.fill(black)
 
@@ -336,18 +317,17 @@ def startGame():
       if monsta_hit_list:
         doNext("Game Over",235,all_sprites_list,block_list,monsta_list,pacman_collide,wall_list,gate)
 
-      # ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
-
       pygame.display.flip()
 
       clock.tick(10)
 
-# This creates all the walls in room 1
+# This creates all level 1 walls
 def setupRoomOne(all_sprites_list):
-    # Make the walls. (x_pos, y_pos, width, height)
+    # Make the walls (x_pos, y_pos, width, height)
     wall_list=pygame.sprite.RenderPlain()
 
-    # This is a list of walls. Each is in the form [x, y, width, height]
+    # List of walls to display on level.
+    # Each is in the form [x, y, width, height]
     walls = [ [0,0,6,600],
               [0,0,600,6],
               [0,600,606,6],
@@ -388,13 +368,12 @@ def setupRoomOne(all_sprites_list):
               [360,540,126,6]
             ]
 
-    # Loop through the list. Create the wall, add it to the list
+    # Loop creating the walls, adding them to the list
     for item in walls:
         wall=Wall(item[0],item[1],item[2],item[3],blue)
         wall_list.add(wall)
         all_sprites_list.add(wall)
 
-    # return our new list
     return wall_list
 
 def setupGate(all_sprites_list):
@@ -405,7 +384,6 @@ def setupGate(all_sprites_list):
 
 def doNext(message,left,all_sprites_list,block_list,monsta_list,pacman_collide,wall_list,gate):
   while True:
-      # ALL EVENT PROCESSING SHOULD GO BELOW THIS COMMENT
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
           pygame.quit()
@@ -421,13 +399,13 @@ def doNext(message,left,all_sprites_list,block_list,monsta_list,pacman_collide,w
             del gate
             startGame()
 
-      #Grey background
+      # Grey background
       w = pygame.Surface((400,200))  # the size of your rect
       w.set_alpha(10)                # alpha level
       w.fill((128,128,128))           # this fills the entire surface
       screen.blit(w, (100,200))    # (0,0) are the top-left coordinates
 
-      #Won or lost
+      # WON or QUIT
       text1=font.render(message, True, white)
       screen.blit(text1, [left, 233])
 
@@ -437,5 +415,4 @@ def doNext(message,left,all_sprites_list,block_list,monsta_list,pacman_collide,w
       screen.blit(text3, [165, 333])
 
       pygame.display.flip()
-
       clock.tick(10)
