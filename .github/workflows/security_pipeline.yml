@@ -4,6 +4,7 @@ name: Security Pipeline
 on:
   pull_request:
     branches: [ "**" ]
+  workflow_dispatch:
 
 jobs:
   horusec-security:
