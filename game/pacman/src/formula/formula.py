@@ -27,12 +27,13 @@ pygame.mixer.music.play(-1, 0.0)
 
 # Default locations for Pacman and Ghosts
 w = 303-16 #Width
-p_h = (7*60)+19 #Pacman height
-m_h = (4*60)+19 #Monster height
-b_h = (3*60)+19 #Binky height
-i_w = 303-16-32 #Inky width
-c_w = 303+(32-16) #Clyde width
+pacman_height = (7*60)+19
+monster_height = (4*60)+19
+blinky_height = (3*60)+19
+inky_width = 303-16-32
+clyde_width = 303+(32-16)
 
+#Pinky movements
 Pinky_directions = [
 [0,-30,4],
 [15,0,9],
@@ -54,6 +55,7 @@ Pinky_directions = [
 [15,0,9]
 ]
 
+#Blinky movements
 Blinky_directions = [
 [0,-15,4],
 [15,0,9],
@@ -85,6 +87,7 @@ Blinky_directions = [
 [15,0,5]
 ]
 
+#Inky movements
 Inky_directions = [
 [30,0,2],
 [0,-15,4],
@@ -119,6 +122,7 @@ Inky_directions = [
 [15,0,1],
 ]
 
+#Clyde movements
 Clyde_directions = [
 [-30,0,2],
 [0,-15,4],
@@ -187,23 +191,23 @@ def startGame():
   c_turn = 0
   c_steps = 0
 
-  Pacman = Player( w, p_h, "images/pacman.png" )
+  Pacman = Player(w, pacman_height, "images/pacman.png" )
   all_sprites_list.add(Pacman)
   pacman_collide.add(Pacman)
 
-  Blinky=Ghost( w, b_h, "images/Blinky.png" )
+  Blinky=Ghost(w, blinky_height, "images/Blinky.png" )
   monsta_list.add(Blinky)
   all_sprites_list.add(Blinky)
 
-  Pinky=Ghost( w, m_h, "images/Pinky.png" )
+  Pinky=Ghost(w, monster_height, "images/Pinky.png" )
   monsta_list.add(Pinky)
   all_sprites_list.add(Pinky)
 
-  Inky=Ghost( i_w, m_h, "images/Inky.png" )
+  Inky=Ghost(inky_width, monster_height, "images/Inky.png" )
   monsta_list.add(Inky)
   all_sprites_list.add(Inky)
 
-  Clyde=Ghost( c_w, m_h, "images/Clyde.png" )
+  Clyde=Ghost(clyde_width, monster_height, "images/Clyde.png" )
   monsta_list.add(Clyde)
   all_sprites_list.add(Clyde)
 
