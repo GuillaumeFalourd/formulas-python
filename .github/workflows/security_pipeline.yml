@@ -17,4 +17,4 @@ jobs:
         id: run_horusec
         uses: fike/horusec-action@v0.2
         with:
-          arguments: --config-file-path=horusec-config.json
+          arguments: -p="./" --ignore="**/.vscode/**, **/*.env, **/.mypy_cache/**, **/tests/**"
