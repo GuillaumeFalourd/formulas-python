@@ -179,35 +179,35 @@ def startGame():
   wall_list = setupRoomOne(all_sprites_list)
   gate = setupGate(all_sprites_list)
 
-  p_turn = 0
-  p_steps = 0
+  pinky_turn = 0
+  pinky_steps = 0
 
-  b_turn = 0
-  b_steps = 0
+  blinky_turn = 0
+  blinky_steps = 0
 
-  i_turn = 0
-  i_steps = 0
+  inky_turn = 0
+  inky_steps = 0
 
-  c_turn = 0
-  c_steps = 0
+  clyde_turn = 0
+  clyde_steps = 0
 
   Pacman = Player(w, pacman_height, "images/pacman.png" )
   all_sprites_list.add(Pacman)
   pacman_collide.add(Pacman)
 
-  Blinky=Ghost(w, blinky_height, "images/Blinky.png" )
+  Blinky = Ghost(w, blinky_height, "images/Blinky.png" )
   monsta_list.add(Blinky)
   all_sprites_list.add(Blinky)
 
-  Pinky=Ghost(w, monster_height, "images/Pinky.png" )
+  Pinky = Ghost(w, monster_height, "images/Pinky.png" )
   monsta_list.add(Pinky)
   all_sprites_list.add(Pinky)
 
-  Inky=Ghost(inky_width, monster_height, "images/Inky.png" )
+  Inky = Ghost(inky_width, monster_height, "images/Inky.png" )
   monsta_list.add(Inky)
   all_sprites_list.add(Inky)
 
-  Clyde=Ghost(clyde_width, monster_height, "images/Clyde.png" )
+  Clyde = Ghost(clyde_width, monster_height, "images/Clyde.png" )
   monsta_list.add(Clyde)
   all_sprites_list.add(Clyde)
 
@@ -271,28 +271,28 @@ def startGame():
       # ALL GAME LOGIC SHOULD GO BELOW THIS COMMENT
       Pacman.update(wall_list,gate)
 
-      returned = Pinky.changespeed(Pinky_directions,False,p_turn,p_steps,pl)
-      p_turn = returned[0]
-      p_steps = returned[1]
-      Pinky.changespeed(Pinky_directions,False,p_turn,p_steps,pl)
-      Pinky.update(wall_list,False)
+      returned = Pinky.changespeed(Pinky_directions, False, pinky_turn, pinky_steps, pl)
+      pinky_turn = returned[0]
+      pinky_steps = returned[1]
+      Pinky.changespeed(Pinky_directions, False, pinky_turn, pinky_steps, pl)
+      Pinky.update(wall_list, False)
 
-      returned = Blinky.changespeed(Blinky_directions,False,b_turn,b_steps,bl)
-      b_turn = returned[0]
-      b_steps = returned[1]
-      Blinky.changespeed(Blinky_directions,False,b_turn,b_steps,bl)
-      Blinky.update(wall_list,False)
+      returned = Blinky.changespeed(Blinky_directions, False, blinky_turn, blinky_steps, bl)
+      blinky_turn = returned[0]
+      blinky_steps = returned[1]
+      Blinky.changespeed(Blinky_directions, False, blinky_turn, blinky_steps, bl)
+      Blinky.update(wall_list, False)
 
-      returned = Inky.changespeed(Inky_directions,False,i_turn,i_steps,il)
-      i_turn = returned[0]
-      i_steps = returned[1]
-      Inky.changespeed(Inky_directions,False,i_turn,i_steps,il)
+      returned = Inky.changespeed(Inky_directions, False, inky_turn, inky_steps, il)
+      inky_turn = returned[0]
+      inky_steps = returned[1]
+      Inky.changespeed(Inky_directions, False, inky_turn, inky_steps, il)
       Inky.update(wall_list,False)
 
-      returned = Clyde.changespeed(Clyde_directions,"clyde",c_turn,c_steps,cl)
-      c_turn = returned[0]
-      c_steps = returned[1]
-      Clyde.changespeed(Clyde_directions,"clyde",c_turn,c_steps,cl)
+      returned = Clyde.changespeed(Clyde_directions, "clyde", clyde_turn, clyde_steps, cl)
+      clyde_turn = returned[0]
+      clyde_steps = returned[1]
+      Clyde.changespeed(Clyde_directions, "clyde", clyde_turn, clyde_steps, cl)
       Clyde.update(wall_list,False)
 
       # See if the Pacman block has collided with anything.
@@ -300,7 +300,7 @@ def startGame():
 
       # Check the list of collisions.
       if len(blocks_hit_list) > 0:
-          score +=len(blocks_hit_list)
+          score += len(blocks_hit_list)
 
       # ALL CODE TO DRAW SHOULD GO BELOW THIS COMMENT
       screen.fill(black)
@@ -310,7 +310,7 @@ def startGame():
       all_sprites_list.draw(screen)
       monsta_list.draw(screen)
 
-      text=font.render("Score: "+str(score)+"/"+str(bll), True, red)
+      text = font.render("Score: " + str(score) + "/" + str(bll), True, red)
       screen.blit(text, [10, 10])
 
       if score == bll:
@@ -328,7 +328,7 @@ def startGame():
 # This creates all level 1 walls
 def setupRoomOne(all_sprites_list):
     # Make the walls (x_pos, y_pos, width, height)
-    wall_list=pygame.sprite.RenderPlain()
+    wall_list = pygame.sprite.RenderPlain()
 
     # List of walls to display on level.
     # Each is in the form [x, y, width, height]
@@ -374,7 +374,7 @@ def setupRoomOne(all_sprites_list):
 
     # Loop creating the walls, adding them to the list
     for item in walls:
-        wall=Wall(item[0],item[1],item[2],item[3],blue)
+        wall = Wall(item[0],item[1],item[2],item[3],blue)
         wall_list.add(wall)
         all_sprites_list.add(wall)
 
@@ -406,16 +406,16 @@ def doNext(message,left,all_sprites_list,block_list,monsta_list,pacman_collide,w
       # Grey background
       w = pygame.Surface((400,200))  # the size of your rect
       w.set_alpha(10)                # alpha level
-      w.fill((128,128,128))           # this fills the entire surface
-      screen.blit(w, (100,200))    # (0,0) are the top-left coordinates
+      w.fill((128,128,128))          # this fills the entire surface
+      screen.blit(w, (100,200))      # (0,0) are the top-left coordinates
 
       # WON or QUIT
-      text1=font.render(message, True, white)
+      text1 = font.render(message, True, white)
       screen.blit(text1, [left, 233])
 
-      text2=font.render("To play again, press ENTER.", True, white)
+      text2 = font.render("To play again, press ENTER.", True, white)
       screen.blit(text2, [135, 303])
-      text3=font.render("To quit, press ESCAPE.", True, white)
+      text3 = font.render("To quit, press ESCAPE.", True, white)
       screen.blit(text3, [165, 333])
 
       pygame.display.flip()
