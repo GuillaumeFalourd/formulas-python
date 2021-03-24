@@ -249,21 +249,21 @@ def startGame():
               done=True
 
           if event.type == pygame.KEYDOWN:
-              if event.key == pygame.K_LEFT or event.key == ord('q'):
+              if event.key == pygame.K_LEFT or event.key == ord('a'):
                   Pacman.changespeed(-30,0)
               if event.key == pygame.K_RIGHT or event.key == ord('d'):
                   Pacman.changespeed(30,0)
-              if event.key == pygame.K_UP or event.key == ord('z'):
+              if event.key == pygame.K_UP or event.key == ord('w'):
                   Pacman.changespeed(0,-30)
               if event.key == pygame.K_DOWN or event.key == ord('s'):
                   Pacman.changespeed(0,30)
 
           if event.type == pygame.KEYUP:
-              if event.key == pygame.K_LEFT or event.key == ord('q'):
+              if event.key == pygame.K_LEFT or event.key == ord('a'):
                   Pacman.changespeed(30,0)
               if event.key == pygame.K_RIGHT or event.key == ord('d'):
                   Pacman.changespeed(-30,0)
-              if event.key == pygame.K_UP or event.key == ord('z'):
+              if event.key == pygame.K_UP or event.key == ord('w'):
                   Pacman.changespeed(0,30)
               if event.key == pygame.K_DOWN or event.key == ord('s'):
                   Pacman.changespeed(0,-30)
