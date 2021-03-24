@@ -1,0 +1,13 @@
+name: 'PR Description Enforcer'
+on:
+    pull_request:
+        types: [opened, edited, reopened]
+
+jobs:
+    enforce:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: derkinderfietsen/pr-description-enforcer@v1
+              with:
+                  repo-token: '${{ secrets.GITHUB_TOKEN }}'
