@@ -143,10 +143,10 @@ Clyde_directions = [
 [15,0,9],
 ]
 
-pl = len(Pinky_directions)-1
-bl = len(Blinky_directions)-1
-il = len(Inky_directions)-1
-cl = len(Clyde_directions)-1
+pinky_movements_list = len(Pinky_directions)-1
+blinky_movements_list = len(Blinky_directions)-1
+inky_movements_list = len(Inky_directions)-1
+clyde_movements_list = len(Clyde_directions)-1
 
 pygame.init()
 
@@ -246,7 +246,7 @@ def startGame():
       # ALL EVENT PROCESSING SHOULD GO BELOW THIS COMMENT
       for event in pygame.event.get():
           if event.type == pygame.QUIT:
-              done=True
+              done = True
 
           if event.type == pygame.KEYDOWN:
               if event.key == pygame.K_LEFT or event.key == ord('a'):
@@ -271,28 +271,28 @@ def startGame():
       # ALL GAME LOGIC SHOULD GO BELOW THIS COMMENT
       Pacman.update(wall_list,gate)
 
-      returned = Pinky.changespeed(Pinky_directions, False, pinky_turn, pinky_steps, pl)
+      returned = Pinky.changespeed(Pinky_directions, False, pinky_turn, pinky_steps, pinky_movements_list)
       pinky_turn = returned[0]
       pinky_steps = returned[1]
-      Pinky.changespeed(Pinky_directions, False, pinky_turn, pinky_steps, pl)
+      Pinky.changespeed(Pinky_directions, False, pinky_turn, pinky_steps, pinky_movements_list)
       Pinky.update(wall_list, False)
 
-      returned = Blinky.changespeed(Blinky_directions, False, blinky_turn, blinky_steps, bl)
+      returned = Blinky.changespeed(Blinky_directions, False, blinky_turn, blinky_steps, blinky_movements_list)
       blinky_turn = returned[0]
       blinky_steps = returned[1]
-      Blinky.changespeed(Blinky_directions, False, blinky_turn, blinky_steps, bl)
+      Blinky.changespeed(Blinky_directions, False, blinky_turn, blinky_steps, blinky_movements_list)
       Blinky.update(wall_list, False)
 
-      returned = Inky.changespeed(Inky_directions, False, inky_turn, inky_steps, il)
+      returned = Inky.changespeed(Inky_directions, False, inky_turn, inky_steps, inky_movements_list)
       inky_turn = returned[0]
       inky_steps = returned[1]
-      Inky.changespeed(Inky_directions, False, inky_turn, inky_steps, il)
+      Inky.changespeed(Inky_directions, False, inky_turn, inky_steps, inky_movements_list)
       Inky.update(wall_list,False)
 
-      returned = Clyde.changespeed(Clyde_directions, "clyde", clyde_turn, clyde_steps, cl)
+      returned = Clyde.changespeed(Clyde_directions, "clyde", clyde_turn, clyde_steps, clyde_movements_list)
       clyde_turn = returned[0]
       clyde_steps = returned[1]
-      Clyde.changespeed(Clyde_directions, "clyde", clyde_turn, clyde_steps, cl)
+      Clyde.changespeed(Clyde_directions, "clyde", clyde_turn, clyde_steps, clyde_movements_list)
       Clyde.update(wall_list,False)
 
       # See if the Pacman block has collided with anything.
