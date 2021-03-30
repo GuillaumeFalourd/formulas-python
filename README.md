@@ -1,3 +1,5 @@
+[![Security Pipeline](https://github.com/GuillaumeFalourd/formulas-python/actions/workflows/security_pipeline.yml/badge.svg)](https://github.com/GuillaumeFalourd/formulas-python/actions/workflows/security_pipeline.yml)
+
 # Ritchie Formulas Repository - Python
 
 ![Rit banner](/docs/img/ritchie-banner.png)
