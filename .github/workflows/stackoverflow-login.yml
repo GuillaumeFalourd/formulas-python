@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Install ChromeDriver
         run: |
-          apt-get install chromium-chromedriver
+          sudo apt-get install -y chromium-chromedriver
       - name: Ritchie Formula Get Github User (Python) Execution
         env:
             RIT_STACKOVERFLOW_EMAIL: ${{ secrets.RIT_STACKOVERFLOW_EMAIL }}
