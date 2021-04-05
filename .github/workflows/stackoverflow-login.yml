@@ -1,0 +1,23 @@
+name: StackOverflow Login #For Fanatic Badge
+
+on:
+  schedule:
+  - cron: "0 12 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+        image: docker://guillaumefalourd/ritchiecli:py-3.8
+    steps:
+      - name: Ritchie Formula Get Github User (Python) Execution
+        env:
+            RIT_STACKOVERFLOW_EMAIL: ${{ secrets.RIT_STACKOVERFLOW_EMAIL }}
+            RIT_STACKOVERFLOW_PASSWORD: ${{ secrets.RIT_STACKOVERFLOW_PASSWORD }}
+            RIT_STACKOVERFLOW_DISPLAY_NAME: ${{ secrets.RIT_STACKOVERFLOW_DISPLAY_NAME }}
+            RIT_SENDGRID_API_KEY: ${{ secrets.rit_sendgrid_api_key }}
+            RIT_SENDGRID_EMAIL_SENDER: ${{ secrets.rit_sendgrid_email_sender }}            
+        run: |
+            sudo rit add repo --provider="Github" --name="formulas-python" --repoUrl="https://github.com/GuillaumeFalourd/formulas-python" --priority=1
+            sudo rit stackoverflow login
