@@ -25,7 +25,8 @@ jobs:
             sudo mv -f ~/chromedriver /usr/local/bin/chromedriver
             sudo chown root:root /usr/local/bin/chromedriver
             sudo chmod 0755 /usr/local/bin/chromedriver
-      - name: Ritchie Formula Get Github User (Python) Execution
+      
+      - name: Ritchie Formula StackOverflow login (Python) Execution
         env:
             RIT_STACKOVERFLOW_EMAIL: ${{ secrets.RIT_STACKOVERFLOW_EMAIL }}
             RIT_STACKOVERFLOW_PASSWORD: ${{ secrets.RIT_STACKOVERFLOW_PASSWORD }}
