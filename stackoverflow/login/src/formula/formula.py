@@ -11,9 +11,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 
 def run(email, password, display_name):
-    print("Logging into stackoverflow.com")
-
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    print("🤖 Logging into stackoverflow.com")
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
     try:
         driver.get("https://stackoverflow.com")
@@ -30,7 +33,7 @@ def run(email, password, display_name):
             expected_conditions.presence_of_element_located((By.CLASS_NAME, "grid--cell.ws-nowrap.fs-body3"))
         )
         assert display_name in elem.text
-        print("✅ Logged into stackoverflow.com and accessed profile page.")
+        print("\n✅ Logged into stackoverflow.com and accessed profile page.")
 
     except Exception as e:
         message = "❌ An error occurred while trying to access stackoverflow.com!"
