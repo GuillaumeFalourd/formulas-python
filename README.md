@@ -26,7 +26,7 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
 - [Flappy Bird Game](https://github.com/GuillaumeFalourd/formulas-python/tree/master/game/flappy-bird): `rit game flappy-bird`
 - [Space Invasion Game](https://github.com/GuillaumeFalourd/formulas-python/tree/master/game/space-invasion): `rit game space-invasion`
 - [Pacman Game](https://github.com/GuillaumeFalourd/formulas-python/tree/master/game/pacman): `rit game pacman`
-- [Stackoverflow Login](https://github.com/GuillaumeFalourd/formulas-python/tree/master/stackoverflow/login): `rit stackoverflow login`
+- [Stackoverflow Login](https://github.com/GuillaumeFalourd/formulas-python/tree/master/stackoverflow/login): `rit stackoverflow login` [![StackOverflow Login](https://github.com/GuillaumeFalourd/formulas-python/actions/workflows/stackoverflow-login.yml/badge.svg)](https://github.com/GuillaumeFalourd/formulas-python/actions/workflows/stackoverflow-login.yml)
 
 ### Doing
 
