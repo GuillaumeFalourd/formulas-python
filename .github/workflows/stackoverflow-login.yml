@@ -11,9 +11,11 @@ jobs:
     container:
         image: docker://guillaumefalourd/ritchiecli:py-3.8
     steps:
-      - name: Install ChromeDriver
+      - name: Install Chromium
         run: |
-          sudo apt-get install -y chromium-chromedriver
+          curl -LO https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          apt-get install -y ./google-chrome-stable_current_amd64.deb
+          rm google-chrome-stable_current_amd64.deb 
       - name: Ritchie Formula Get Github User (Python) Execution
         env:
             RIT_STACKOVERFLOW_EMAIL: ${{ secrets.RIT_STACKOVERFLOW_EMAIL }}
