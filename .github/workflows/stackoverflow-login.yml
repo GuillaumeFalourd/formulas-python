@@ -20,4 +20,6 @@ jobs:
             RIT_SENDGRID_EMAIL_SENDER: ${{ secrets.rit_sendgrid_email_sender }}            
         run: |
             sudo rit add repo --provider="Github" --name="formulas-python" --repoUrl="https://github.com/GuillaumeFalourd/formulas-python" --priority=1
+            sudo rit set credential --provider=stackoverflow --fields=email,password,displayname --values="$RIT_STACKOVERFLOW_EMAIL","$RIT_STACKOVERFLOW_PASSWORD","$RIT_STACKOVERFLOW_DISPLAY_NAME"
+            sudo rit set credential --provider=sendgrid --fields=apikey,emailsender --values="$RIT_SENDGRID_API_KEY","$RIT_SENDGRID_EMAIL_SENDER"
             sudo rit stackoverflow login
