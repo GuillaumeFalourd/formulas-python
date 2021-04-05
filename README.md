@@ -26,9 +26,13 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
 - [Flappy Bird Game](https://github.com/GuillaumeFalourd/formulas-python/tree/master/game/flappy-bird): `rit game flappy-bird`
 - [Space Invasion Game](https://github.com/GuillaumeFalourd/formulas-python/tree/master/game/space-invasion): `rit game space-invasion`
 - [Pacman Game](https://github.com/GuillaumeFalourd/formulas-python/tree/master/game/pacman): `rit game pacman`
-- [Stackoverflow Login](https://github.com/GuillaumeFalourd/formulas-python/tree/master/stackoverflow/login): `rit stackoverflow login` [![StackOverflow Login](https://github.com/GuillaumeFalourd/formulas-python/actions/workflows/stackoverflow-login.yml/badge.svg)](https://github.com/GuillaumeFalourd/formulas-python/actions/workflows/stackoverflow-login.yml)
 
-### Doing
+### Testing
+
+ [![StackOverflow Login](https://github.com/GuillaumeFalourd/formulas-python/actions/workflows/stackoverflow-login.yml/badge.svg)](https://github.com/GuillaumeFalourd/formulas-python/actions/workflows/stackoverflow-login.yml)
+- [Stackoverflow Login](https://github.com/GuillaumeFalourd/formulas-python/tree/master/stackoverflow/login): `rit stackoverflow login`
+
+### Working On
 
 - [Aws boto3](https://github.com/GuillaumeFalourd/formulas-python/tree/master/aws/boto3): `rit aws boto3`
 - [Linkedin web-scraping](https://github.com/GuillaumeFalourd/formulas-python/tree/master/linkedin/web-scraping): `rit linkedin web-scraping`
