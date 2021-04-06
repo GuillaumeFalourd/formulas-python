@@ -12,14 +12,6 @@
     {
       "name": "rit_stackoverflow_display_name",
       "type": "CREDENTIAL_STACKOVERFLOW_DISPLAYNAME"
-    },
-    {
-      "name": "rit_sendgrid_api_key",
-      "type": "CREDENTIAL_SENDGRID_APIKEY"
-    },
-    {
-      "name": "rit_sendgrid_email_sender",
-      "type": "CREDENTIAL_SENDGRID_EMAILSENDER"
     }
   ]
 }
