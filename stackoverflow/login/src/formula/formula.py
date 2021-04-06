@@ -36,7 +36,7 @@ def run(email, password, display_name):
         print(f"\n\033[1m✅ Succesfully accessed \033[36m{display_name}\033[0m\033[1m profile page!\033[0m")
 
     except Exception as e:
-        message = "\033[1m❌ An error occurred while trying to access stackoverflow.com\033[0m!"
+        message = "\n\033[1m❌ An error occurred while trying to access stackoverflow.com\033[0m!"
         print(message)
         
         """ 
@@ -45,7 +45,12 @@ def run(email, password, display_name):
         as local variables.
         """
         if os.environ.get('RIT_SENDGRID_API_KEY') is not None:
+            print("\n\033[1m🤖 Sending Email...\033[0m")
             send_mail("Error at login!", message + str(e))
+        else:
+            print("\n\033[1m🤖 SENDRIG not configured...\033[0m")
+            print("\n\033[1m🤖 If you want to send a message when an erro occurs, check https://github.com/GuillaumeFalourd/formulas-python/tree/master/stackoverflow/login\033[0m")
+
 
     finally:
         driver.close()
@@ -66,7 +71,7 @@ def send_mail(subject, content):
 
         response = sg.client.mail.send.post(request_body=message.get())
 
-        print(f"\033[1m📩 Email sent successfully to {to_email}\033[0m")
+        print(f"\n\033[1m📩 Email sent successfully to {to_email}\033[0m")
     
     except Exception as e:
-        print("❌ An error occurred while trying to send the email!")
+        print("\n\033[1m❌ An error occurred while trying to send the email!\033[0m")
