@@ -49,7 +49,7 @@ def run(email, password, display_name):
             send_mail("Error at login!", message + str(e))
         else:
             print("\n\033[1m🤖 SENDRIG not configured...\033[0m")
-            print("\n\033[1m🤖 If you want to send a message when an erro occurs, check https://github.com/GuillaumeFalourd/formulas-python/tree/master/stackoverflow/login\033[0m")
+            print("\n\033[1m🤖 If you want to send a message when an error occurs, check https://github.com/GuillaumeFalourd/formulas-python/tree/master/stackoverflow/login\033[0m")
 
 
     finally:
