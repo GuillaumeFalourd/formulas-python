@@ -27,12 +27,6 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
 - [Space Invasion Game](https://github.com/GuillaumeFalourd/formulas-python/tree/master/game/space-invasion): `rit game space-invasion`
 - [Pacman Game](https://github.com/GuillaumeFalourd/formulas-python/tree/master/game/pacman): `rit game pacman`
 
-### Testing
-
- [![StackOverflow Login](https://github.com/GuillaumeFalourd/formulas-python/actions/workflows/stackoverflow-login.yml/badge.svg)](https://github.com/GuillaumeFalourd/formulas-python/actions/workflows/stackoverflow-login.yml)
-
-- [Stackoverflow Login](https://github.com/GuillaumeFalourd/formulas-python/tree/master/stackoverflow/login): `rit stackoverflow login`
-
 ### Working On
 
 - [Aws boto3](https://github.com/GuillaumeFalourd/formulas-python/tree/master/aws/boto3): `rit aws boto3`
