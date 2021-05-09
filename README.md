@@ -2,7 +2,7 @@
 
 # Ritchie Formulas Python
 
-![Rit banner](/docs/img/ritchie-banner.png)
+<img width="950" alt="title" src="https://user-images.githubusercontent.com/22433243/117589577-bdf50580-b100-11eb-9c02-5ba95ab35d89.png">
 
 ## Documentation
 
