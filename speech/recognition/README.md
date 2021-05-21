@@ -1,6 +1,6 @@
 # Ritchie Speech Recognition Formula
 
-![Execution](/docs/img/speech-recognition-python.png)
+![Execution](/docs/img/speech-recognition-python.jpg)
 
 ## Premisses
 
