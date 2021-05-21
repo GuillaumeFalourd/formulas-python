@@ -2,7 +2,7 @@
 
 # Ritchie Formulas Python
 
-![Rit banner](/docs/img/ritchie-banner.png)
+<img width="950" alt="title" src="https://user-images.githubusercontent.com/22433243/117589577-bdf50580-b100-11eb-9c02-5ba95ab35d89.png">
 
 ## Documentation
 
@@ -12,9 +12,7 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
 
 ## Formulas available on this repository
 
-### Done / To improve
-
-#### Recognition
+### Recognition
 
 - [Convert Text to Audio](https://github.com/GuillaumeFalourd/formulas-python/tree/master/convert/text-to-audio): `rit convert text-to-audio`
 - [Face Recognition](https://github.com/GuillaumeFalourd/formulas-python/tree/master/face/recognition): `rit face recognition`
@@ -23,7 +21,7 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
   - [Image Text Detection](https://github.com/GuillaumeFalourd/formulas-python/tree/master/detect/text-on-image): `rit detect image-to-text`
   - [Live Text Detection](https://github.com/GuillaumeFalourd/formulas-python/tree/master/detect/text-on-video): `rit detect text-on-video`
 
-#### Others
+### Others
 
 - [Aws boto3](https://github.com/GuillaumeFalourd/formulas-python/tree/master/aws/boto3): `rit aws boto3`
 - [Send Email](https://github.com/GuillaumeFalourd/formulas-python/tree/master/send/email): `rit send email`
