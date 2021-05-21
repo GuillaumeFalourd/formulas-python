@@ -12,7 +12,7 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
 
 ## 🔎 What you'll find in this repository
 
-### Recognition
+### Recognition / Detection
 
 - [Convert Text to Audio](https://github.com/GuillaumeFalourd/formulas-python/tree/master/convert/text-to-audio): `rit convert text-to-audio`
 
