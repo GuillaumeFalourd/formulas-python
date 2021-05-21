@@ -15,11 +15,36 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
 ### Recognition
 
 - [Convert Text to Audio](https://github.com/GuillaumeFalourd/formulas-python/tree/master/convert/text-to-audio): `rit convert text-to-audio`
+
+![Execution](/docs/img/rit-convert-text-to-audio.png)
+
 - [Face Recognition](https://github.com/GuillaumeFalourd/formulas-python/tree/master/face/recognition): `rit face recognition`
+
+![Execution](/docs/img/rit-face-recognition-custom.png)
+
 - [Speech Recognition](https://github.com/GuillaumeFalourd/formulas-python/tree/master/speech/recognition): `rit speech recognition`
-- [Text Recognition](https://github.com/GuillaumeFalourd/formulas-python/tree/master/text/recognition): `rit text recognition`
-  - [Image Text Detection](https://github.com/GuillaumeFalourd/formulas-python/tree/master/detect/text-on-image): `rit detect image-to-text`
-  - [Live Text Detection](https://github.com/GuillaumeFalourd/formulas-python/tree/master/detect/text-on-video): `rit detect text-on-video`
+
+![Execution](/docs/img/rit-speech-recognition.png)
+
+- [Image Text Detection](https://github.com/GuillaumeFalourd/formulas-python/tree/master/detect/text-on-image): `rit detect image-to-text`
+
+GET
+
+![Execution](/docs/img/rit-detect-text-on-image.png)
+
+FROM
+
+![Image](/docs/img/rit-detect-text-on-image-test-european.jpg)
+
+- [Live Text Detection](https://github.com/GuillaumeFalourd/formulas-python/tree/master/detect/text-on-video): `rit detect text-on-video`
+
+GET
+
+![Execution](/docs/img/rit-detect-text-on-video.png)
+
+FROM
+
+![Image](/docs/img/rit-detect-text-on-video-webcam.png)
 
 ### Others
 
@@ -31,6 +56,14 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
 
 - [Linkedin web-scraping](https://github.com/GuillaumeFalourd/formulas-python/tree/master/linkedin/web-scraping): `rit linkedin web-scraping`
 - [Object Detection](https://github.com/GuillaumeFalourd/formulas-python/tree/master/object/detection): `rit object detection`
+
+### Similar contents
+
+If you want to see similar repositories:
+
+- [formulas-aws](https://github.com/GuillaumeFalourd/formulas-aws)
+- [formulas-insights](https://github.com/GuillaumeFalourd/formulas-insights)
+- [formulas-games](https://github.com/GuillaumeFalourd/formulas-games)
 
 ## Use Formulas
 
