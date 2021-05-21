@@ -16,41 +16,37 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
 
 - [Convert Text to Audio](https://github.com/GuillaumeFalourd/formulas-python/tree/master/convert/text-to-audio): `rit convert text-to-audio`
 
-![Execution](/docs/img/rit-convert-text-to-audio.png)
+_Formula allowing to convert a text (from a txt file or input) to an audio file._
 
 - [Face Recognition](https://github.com/GuillaumeFalourd/formulas-python/tree/master/face/recognition): `rit face recognition`
 
-![Execution](/docs/img/rit-face-recognition-custom.png)
+_Formula using face recognition using the computer webcam._
 
 - [Speech Recognition](https://github.com/GuillaumeFalourd/formulas-python/tree/master/speech/recognition): `rit speech recognition`
 
-![Execution](/docs/img/rit-speech-recognition.png)
+_Formula using speech recognition converting what you speak in a txt file._
 
 - [Image Text Detection](https://github.com/GuillaumeFalourd/formulas-python/tree/master/detect/text-on-image): `rit detect image-to-text`
 
-GET
-
-![Execution](/docs/img/rit-detect-text-on-image.png)
-
-FROM
-
-![Image](/docs/img/rit-detect-text-on-image-test-european.jpg)
+_Formula detecting text from an image input._
 
 - [Live Text Detection](https://github.com/GuillaumeFalourd/formulas-python/tree/master/detect/text-on-video): `rit detect text-on-video`
 
-GET
-
-![Execution](/docs/img/rit-detect-text-on-video.png)
-
-FROM
-
-![Image](/docs/img/rit-detect-text-on-video-webcam.png)
+_Formula detecting text using the computer webcam._
 
 ### Others
 
 - [Aws boto3](https://github.com/GuillaumeFalourd/formulas-python/tree/master/aws/boto3): `rit aws boto3`
+
+_Formula using the boto3 library to interact with AWS._
+
 - [Send Email](https://github.com/GuillaumeFalourd/formulas-python/tree/master/send/email): `rit send email`
+
+_Formula sending an email._
+
 - [Wikipedia Search](https://github.com/GuillaumeFalourd/formulas-python/tree/master/wiki/search): `rit wiki search`
+
+_Formula making a wiki search based on user input._
 
 ### Working On
 
