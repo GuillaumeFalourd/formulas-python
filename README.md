@@ -1,6 +1,6 @@
 [![Security Pipeline](https://github.com/GuillaumeFalourd/formulas-python/actions/workflows/security_pipeline.yml/badge.svg)](https://github.com/GuillaumeFalourd/formulas-python/actions/workflows/security_pipeline.yml)
 
-# Ritchie Formulas Python
+# Formulas Python
 
 <img width="950" alt="title" src="https://user-images.githubusercontent.com/22433243/117589577-bdf50580-b100-11eb-9c02-5ba95ab35d89.png">
 
