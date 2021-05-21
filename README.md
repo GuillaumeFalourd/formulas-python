@@ -57,9 +57,9 @@ _Formula making a wiki search based on user input._
 
 If you want to see similar repositories:
 
-- [formulas-aws](https://github.com/GuillaumeFalourd/formulas-aws)
-- [formulas-insights](https://github.com/GuillaumeFalourd/formulas-insights)
-- [formulas-games](https://github.com/GuillaumeFalourd/formulas-games)
+- [formulas-aws](https://github.com/GuillaumeFalourd/formulas-aws): Repository with formulas interacting with AWS.
+- [formulas-insights](https://github.com/GuillaumeFalourd/formulas-insights): Repository with formulas getting insights from Github, LinkedIn, Google accounts.
+- [formulas-games](https://github.com/GuillaumeFalourd/formulas-games): Repository with formulas games (pacman, space invasion)
 
 ## Use Formulas
 
