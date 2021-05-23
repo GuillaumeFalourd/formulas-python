@@ -105,6 +105,6 @@ If you want to see similar formulas repositories:
 
 ![title](https://user-images.githubusercontent.com/22433243/119176109-11d8e600-ba41-11eb-8ed7-c917ab061e56.png)
 
-- [formulas-games](https://github.com/GuillaumeFalourd/formulas-games): Repository with formulas games (pacman, space invasion)
+- [formulas-games](https://github.com/GuillaumeFalourd/formulas-games): Repository with formulas games (pacman, space invasion, dino-rush, flappy bird...)
 
 ![title](https://user-images.githubusercontent.com/22433243/119173001-fd92ea00-ba3c-11eb-9314-bad231c0bbc3.png)
