@@ -12,6 +12,10 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
 
 ## 🔎 What you'll find in this repository
 
+![Image](/docs/img/rit-face-recognition-custom-with-keanu-reeves.png)
+
+![Image](/docs/img/rit-detect-text-on-video-webcam.png)
+
 ### Recognition / Detection
 
 - [Convert Text to Audio](https://github.com/GuillaumeFalourd/formulas-python/tree/master/convert/text-to-audio): `rit convert text-to-audio`
