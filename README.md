@@ -10,6 +10,18 @@ This repository contains Ritchie formulas which can be executed by [ritchie-cli]
 
 - [Ritchie CLI documentation](https://docs.ritchiecli.io)
 
+## 📦 Use Formulas
+
+To import this repository, you need [Ritchie CLI installed](https://docs.ritchiecli.io/getting-started/install-cli)
+
+Then, you can use the `rit add repo` command manually, or execute the command line below directly on your terminal (since CLI version 2.8.0):
+
+```bash
+rit add repo --provider="Github" --name="formulas-python" --repoUrl="https://github.com/GuillaumeFalourd/formulas-python" --priority=1
+```
+
+Finally, you can check if the repository has been imported correctly by executing the `rit list repo` command.
+
 ## 🔎 What you'll find in this repository
 
 ![Image](/docs/img/rit-face-recognition-custom-with-keanu-reeves.png)
@@ -56,18 +68,6 @@ _Formula making a wiki search based on user input._
 
 - [Linkedin web-scraping](https://github.com/GuillaumeFalourd/formulas-python/tree/master/linkedin/web-scraping): `rit linkedin web-scraping`
 - [Object Detection](https://github.com/GuillaumeFalourd/formulas-python/tree/master/object/detection): `rit object detection`
-
-## 📦 Use Formulas
-
-To import this repository, you need [Ritchie CLI installed](https://docs.ritchiecli.io/getting-started/install-cli)
-
-Then, you can use the `rit add repo` command manually, or execute the command line below directly on your terminal (since CLI version 2.8.0):
-
-```bash
-rit add repo --provider="Github" --name="formulas-python" --repoUrl="https://github.com/GuillaumeFalourd/formulas-python" --priority=1
-```
-
-Finally, you can check if the repository has been imported correctly by executing the `rit list repo` command.
 
 ## ♻️ Contribute to the repository
 
