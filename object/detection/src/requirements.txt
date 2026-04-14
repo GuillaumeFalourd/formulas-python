@@ -1,5 +1,5 @@
 tensorflow==2.12.1
-keras==2.4.3
+keras==3.13.2
 numpy==1.22.0
 pillow==12.2.0
 scipy==1.10.0
